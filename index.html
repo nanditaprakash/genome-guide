@@ -1,1 +1,807 @@
-<html><head><meta content="text/html; charset=UTF-8" http-equiv="content-type"><style type="text/css">ol{margin:0;padding:0}table td,table th{padding:0}.c2{background-color:#ffffff;color:#222222;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c3{color:#000000;font-weight:400;text-decoration:none;vertical-align:baseline;font-size:11pt;font-family:"Arial";font-style:normal}.c0{padding-top:0pt;padding-bottom:0pt;line-height:1.15;orphans:2;widows:2;text-align:left}.c7{text-decoration-skip-ink:none;-webkit-text-decoration-skip:none;color:#1155cc;text-decoration:underline}.c6{background-color:#ffffff;max-width:468pt;padding:72pt 72pt 72pt 72pt}.c5{color:inherit;text-decoration:inherit}.c4{background-color:#ffffff;color:#222222}.c1{height:11pt}.title{padding-top:0pt;color:#000000;font-size:26pt;padding-bottom:3pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}.subtitle{padding-top:0pt;color:#666666;font-size:15pt;padding-bottom:16pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}li{color:#000000;font-size:11pt;font-family:"Arial"}p{margin:0;color:#000000;font-size:11pt;font-family:"Arial"}h1{padding-top:20pt;color:#000000;font-size:20pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h2{padding-top:18pt;color:#000000;font-size:16pt;padding-bottom:6pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h3{padding-top:16pt;color:#434343;font-size:14pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h4{padding-top:14pt;color:#666666;font-size:12pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h5{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;orphans:2;widows:2;text-align:left}h6{padding-top:12pt;color:#666666;font-size:11pt;padding-bottom:4pt;font-family:"Arial";line-height:1.15;page-break-after:avoid;font-style:italic;orphans:2;widows:2;text-align:left}</style></head><body class="c6 doc-content"><p class="c0"><span class="c2">&lt;!DOCTYPE html&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;html lang=&quot;en&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;head&gt;</span></p><p class="c0"><span class="c2">&lt;meta charset=&quot;UTF-8&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;title&gt;GenomeGuide &mdash; Personalized Medicine Decision Tool&lt;/title&gt;</span></p><p class="c0"><span class="c2">&lt;style&gt;</span></p><p class="c0"><span class="c4">@import url(&#39;</span><span class="c7"><a class="c5" href="https://www.google.com/url?q=https://fonts.googleapis.com/css2?family%3DDM%2BSerif%2BDisplay:ital@0;1%26family%3DDM%2BSans:wght@300;400;500;600%26family%3DJetBrains%2BMono:wght@400;500%26display%3Dswap%2527&amp;sa=D&amp;source=editors&amp;ust=1777158230131552&amp;usg=AOvVaw2lpHFVM8l2MXI4rn3r6pyq">https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap&#39;</a></span><span class="c2">);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">:root {</span></p><p class="c0"><span class="c2">&ndash;indigo: #1e1b4b;</span></p><p class="c0"><span class="c2">&ndash;purple: #4338ca;</span></p><p class="c0"><span class="c2">&ndash;violet: #7c3aed;</span></p><p class="c0"><span class="c2">&ndash;purple-light: #eef2ff;</span></p><p class="c0"><span class="c2">&ndash;teal: #0f766e;</span></p><p class="c0"><span class="c2">&ndash;teal-light: #ccfbf1;</span></p><p class="c0"><span class="c2">&ndash;amber: #b45309;</span></p><p class="c0"><span class="c2">&ndash;amber-light: #fef3c7;</span></p><p class="c0"><span class="c2">&ndash;red: #991b1b;</span></p><p class="c0"><span class="c2">&ndash;red-light: #fee2e2;</span></p><p class="c0"><span class="c2">&ndash;green: #166534;</span></p><p class="c0"><span class="c2">&ndash;green-light: #dcfce7;</span></p><p class="c0"><span class="c2">&ndash;gray-50: #f8fafc;</span></p><p class="c0"><span class="c2">&ndash;gray-100: #f1f5f9;</span></p><p class="c0"><span class="c2">&ndash;gray-200: #e2e8f0;</span></p><p class="c0"><span class="c2">&ndash;gray-500: #64748b;</span></p><p class="c0"><span class="c2">&ndash;gray-700: #334155;</span></p><p class="c0"><span class="c2">&ndash;gray-900: #0f172a;</span></p><p class="c0"><span class="c2">&ndash;white: #ffffff;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">- { box-sizing: border-box; margin: 0; padding: 0; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">body {</span></p><p class="c0"><span class="c2">font-family: &lsquo;DM Sans&rsquo;, sans-serif;</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-50);</span></p><p class="c0"><span class="c2">color: var(&ndash;gray-900);</span></p><p class="c0"><span class="c2">min-height: 100vh;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Header &#9472;&#9472; */</span></p><p class="c0"><span class="c2">header {</span></p><p class="c0"><span class="c2">background: linear-gradient(135deg, var(&ndash;indigo) 0%, var(&ndash;purple) 60%, var(&ndash;violet) 100%);</span></p><p class="c0"><span class="c2">padding: 2.5rem 2rem 2rem;</span></p><p class="c0"><span class="c2">text-align: center;</span></p><p class="c0"><span class="c2">position: relative;</span></p><p class="c0"><span class="c2">overflow: hidden;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">header::before {</span></p><p class="c0"><span class="c2">content: &lsquo;&rsquo;;</span></p><p class="c0"><span class="c2">position: absolute; inset: 0;</span></p><p class="c0"><span class="c2">background: radial-gradient(ellipse at 30% 50%, rgba(124,58,237,0.3) 0%, transparent 60%),</span></p><p class="c0"><span class="c2">radial-gradient(ellipse at 70% 20%, rgba(99,102,241,0.2) 0%, transparent 50%);</span></p><p class="c0"><span class="c2">pointer-events: none;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.header-badge {</span></p><p class="c0"><span class="c2">display: inline-block;</span></p><p class="c0"><span class="c2">background: rgba(255,255,255,0.15);</span></p><p class="c0"><span class="c2">border: 1px solid rgba(255,255,255,0.3);</span></p><p class="c0"><span class="c2">color: rgba(255,255,255,0.9);</span></p><p class="c0"><span class="c2">font-size: 0.7rem;</span></p><p class="c0"><span class="c2">font-weight: 600;</span></p><p class="c0"><span class="c2">letter-spacing: 0.12em;</span></p><p class="c0"><span class="c2">text-transform: uppercase;</span></p><p class="c0"><span class="c2">padding: 0.3rem 0.9rem;</span></p><p class="c0"><span class="c2">border-radius: 100px;</span></p><p class="c0"><span class="c2">margin-bottom: 1rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">header h1 {</span></p><p class="c0"><span class="c2">font-family: &lsquo;DM Serif Display&rsquo;, serif;</span></p><p class="c0"><span class="c2">font-size: clamp(2.5rem, 6vw, 4rem);</span></p><p class="c0"><span class="c2">color: white;</span></p><p class="c0"><span class="c2">letter-spacing: -0.02em;</span></p><p class="c0"><span class="c2">line-height: 1;</span></p><p class="c0"><span class="c2">margin-bottom: 0.5rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">header h1 span { color: #a5b4fc; }</span></p><p class="c0"><span class="c2">header p {</span></p><p class="c0"><span class="c2">color: rgba(255,255,255,0.75);</span></p><p class="c0"><span class="c2">font-size: 1rem;</span></p><p class="c0"><span class="c2">font-weight: 300;</span></p><p class="c0"><span class="c2">max-width: 520px;</span></p><p class="c0"><span class="c2">margin: 0 auto;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Progress &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.progress-bar {</span></p><p class="c0"><span class="c2">display: flex;</span></p><p class="c0"><span class="c2">justify-content: center;</span></p><p class="c0"><span class="c2">gap: 0.5rem;</span></p><p class="c0"><span class="c2">padding: 1.5rem 2rem 0;</span></p><p class="c0"><span class="c2">flex-wrap: wrap;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.step-dot {</span></p><p class="c0"><span class="c2">display: flex; align-items: center; gap: 0.4rem;</span></p><p class="c0"><span class="c2">font-size: 0.75rem; font-weight: 500;</span></p><p class="c0"><span class="c2">color: rgba(255,255,255,0.45);</span></p><p class="c0"><span class="c2">transition: color 0.3s;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.step-dot.active { color: white; }</span></p><p class="c0"><span class="c2">.step-dot.done { color: #a5b4fc; }</span></p><p class="c0"><span class="c2">.dot {</span></p><p class="c0"><span class="c2">width: 28px; height: 28px; border-radius: 50%;</span></p><p class="c0"><span class="c2">border: 2px solid rgba(255,255,255,0.25);</span></p><p class="c0"><span class="c2">display: flex; align-items: center; justify-content: center;</span></p><p class="c0"><span class="c2">font-size: 0.7rem; font-weight: 600;</span></p><p class="c0"><span class="c2">transition: all 0.3s;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.step-dot.active .dot { background: white; color: var(&ndash;purple); border-color: white; }</span></p><p class="c0"><span class="c2">.step-dot.done .dot { background: #a5b4fc; color: var(&ndash;indigo); border-color: #a5b4fc; }</span></p><p class="c0"><span class="c2">.step-line { width: 24px; height: 2px; background: rgba(255,255,255,0.2); align-self: center; }</span></p><p class="c0"><span class="c2">.step-line.done { background: #a5b4fc; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Main &#9472;&#9472; */</span></p><p class="c0"><span class="c2">main { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Section card &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.section {</span></p><p class="c0"><span class="c2">background: white;</span></p><p class="c0"><span class="c2">border-radius: 16px;</span></p><p class="c0"><span class="c2">border: 1px solid var(&ndash;gray-200);</span></p><p class="c0"><span class="c2">padding: 2rem;</span></p><p class="c0"><span class="c2">margin-bottom: 1.5rem;</span></p><p class="c0"><span class="c2">display: none;</span></p><p class="c0"><span class="c2">animation: fadeUp 0.4s ease;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.section.active { display: block; }</span></p><p class="c0"><span class="c2">@keyframes fadeUp {</span></p><p class="c0"><span class="c2">from { opacity: 0; transform: translateY(16px); }</span></p><p class="c0"><span class="c2">to { opacity: 1; transform: translateY(0); }</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.section-header {</span></p><p class="c0"><span class="c2">display: flex; align-items: center; gap: 0.75rem;</span></p><p class="c0"><span class="c2">margin-bottom: 1.5rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.section-icon {</span></p><p class="c0"><span class="c2">width: 40px; height: 40px; border-radius: 10px;</span></p><p class="c0"><span class="c2">background: var(&ndash;purple-light);</span></p><p class="c0"><span class="c2">display: flex; align-items: center; justify-content: center;</span></p><p class="c0"><span class="c2">font-size: 1.2rem; flex-shrink: 0;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.section-title { font-size: 1.2rem; font-weight: 600; color: var(&ndash;indigo); }</span></p><p class="c0"><span class="c2">.section-sub { font-size: 0.82rem; color: var(&ndash;gray-500); margin-top: 0.15rem; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Form elements &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.field { margin-bottom: 1.25rem; }</span></p><p class="c0"><span class="c2">label {</span></p><p class="c0"><span class="c2">display: block;</span></p><p class="c0"><span class="c2">font-size: 0.85rem; font-weight: 500;</span></p><p class="c0"><span class="c2">color: var(&ndash;gray-700);</span></p><p class="c0"><span class="c2">margin-bottom: 0.4rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">label span { font-weight: 400; color: var(&ndash;gray-500); margin-left: 0.25rem; }</span></p><p class="c0"><span class="c2">input[type=&ldquo;number&rdquo;], input[type=&ldquo;text&rdquo;], select {</span></p><p class="c0"><span class="c2">width: 100%; padding: 0.6rem 0.85rem;</span></p><p class="c0"><span class="c2">border: 1.5px solid var(&ndash;gray-200);</span></p><p class="c0"><span class="c2">border-radius: 8px;</span></p><p class="c0"><span class="c2">font-family: &lsquo;DM Sans&rsquo;, sans-serif;</span></p><p class="c0"><span class="c2">font-size: 0.9rem; color: var(&ndash;gray-900);</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-50);</span></p><p class="c0"><span class="c2">transition: border-color 0.2s;</span></p><p class="c0"><span class="c2">outline: none;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">input:focus, select:focus { border-color: var(&ndash;purple); background: white; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.radio-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }</span></p><p class="c0"><span class="c2">.radio-btn {</span></p><p class="c0"><span class="c2">padding: 0.45rem 0.9rem;</span></p><p class="c0"><span class="c2">border: 1.5px solid var(&ndash;gray-200);</span></p><p class="c0"><span class="c2">border-radius: 8px;</span></p><p class="c0"><span class="c2">font-size: 0.83rem; font-weight: 500;</span></p><p class="c0"><span class="c2">color: var(&ndash;gray-700);</span></p><p class="c0"><span class="c2">cursor: pointer; transition: all 0.2s;</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-50);</span></p><p class="c0"><span class="c2">user-select: none;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.radio-btn:hover { border-color: var(&ndash;purple); color: var(&ndash;purple); }</span></p><p class="c0"><span class="c2">.radio-btn.selected { background: var(&ndash;purple); color: white; border-color: var(&ndash;purple); }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; SNP toggles &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.snp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }</span></p><p class="c0"><span class="c2">@media(max-width:500px){ .snp-grid { grid-template-columns: 1fr; } }</span></p><p class="c0"><span class="c2">.snp-card {</span></p><p class="c0"><span class="c2">border: 1.5px solid var(&ndash;gray-200);</span></p><p class="c0"><span class="c2">border-radius: 10px;</span></p><p class="c0"><span class="c2">padding: 0.75rem;</span></p><p class="c0"><span class="c2">cursor: pointer; transition: all 0.2s;</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-50);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.snp-card:hover { border-color: var(&ndash;purple); }</span></p><p class="c0"><span class="c2">.snp-card.selected { border-color: var(&ndash;purple); background: var(&ndash;purple-light); }</span></p><p class="c0"><span class="c2">.snp-name { font-family: &lsquo;JetBrains Mono&rsquo;, monospace; font-size: 0.78rem; font-weight: 500; color: var(&ndash;purple); }</span></p><p class="c0"><span class="c2">.snp-disease { font-size: 0.72rem; color: var(&ndash;gray-500); margin-top: 0.15rem; }</span></p><p class="c0"><span class="c2">.snp-risk { font-size: 0.7rem; color: var(&ndash;red); font-weight: 500; margin-top: 0.2rem; }</span></p><p class="c0"><span class="c2">.snp-card.selected .snp-disease, .snp-card.selected .snp-risk { color: var(&ndash;indigo); }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Slider &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.slider-wrap { display: flex; align-items: center; gap: 1rem; }</span></p><p class="c0"><span class="c2">input[type=&ldquo;range&rdquo;] {</span></p><p class="c0"><span class="c2">flex: 1; height: 4px;</span></p><p class="c0"><span class="c2">-webkit-appearance: none;</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-200); border-radius: 2px;</span></p><p class="c0"><span class="c2">outline: none;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">input[type=&ldquo;range&rdquo;]::-webkit-slider-thumb {</span></p><p class="c0"><span class="c2">-webkit-appearance: none;</span></p><p class="c0"><span class="c2">width: 18px; height: 18px; border-radius: 50%;</span></p><p class="c0"><span class="c2">background: var(&ndash;purple); cursor: pointer;</span></p><p class="c0"><span class="c2">box-shadow: 0 0 0 3px rgba(67,56,202,0.2);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.slider-val {</span></p><p class="c0"><span class="c2">min-width: 2rem; text-align: center;</span></p><p class="c0"><span class="c2">font-weight: 600; color: var(&ndash;purple); font-size: 0.9rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Buttons &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.btn {</span></p><p class="c0"><span class="c2">padding: 0.75rem 1.75rem;</span></p><p class="c0"><span class="c2">border-radius: 10px; border: none;</span></p><p class="c0"><span class="c2">font-family: &lsquo;DM Sans&rsquo;, sans-serif;</span></p><p class="c0"><span class="c2">font-size: 0.9rem; font-weight: 600;</span></p><p class="c0"><span class="c2">cursor: pointer; transition: all 0.2s;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.btn-primary {</span></p><p class="c0"><span class="c2">background: linear-gradient(135deg, var(&ndash;purple), var(&ndash;violet));</span></p><p class="c0"><span class="c2">color: white; box-shadow: 0 4px 12px rgba(67,56,202,0.3);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(67,56,202,0.4); }</span></p><p class="c0"><span class="c2">.btn-secondary {</span></p><p class="c0"><span class="c2">background: var(&ndash;gray-100); color: var(&ndash;gray-700);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.btn-secondary:hover { background: var(&ndash;gray-200); }</span></p><p class="c0"><span class="c2">.btn-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; gap: 1rem; }</span></p><p class="c0"><span class="c2">.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Results &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.results-section { display: none; }</span></p><p class="c0"><span class="c2">.results-section.active { display: block; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.risk-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }</span></p><p class="c0"><span class="c2">.risk-card {</span></p><p class="c0"><span class="c2">border-radius: 12px; padding: 1rem;</span></p><p class="c0"><span class="c2">text-align: center; border: 1.5px solid transparent;</span></p><p class="c0"><span class="c2">transition: transform 0.2s;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.risk-card:hover { transform: translateY(-2px); }</span></p><p class="c0"><span class="c2">.risk-card.low { background: var(&ndash;green-light); border-color: #86efac; }</span></p><p class="c0"><span class="c2">.risk-card.moderate { background: var(&ndash;amber-light); border-color: #fcd34d; }</span></p><p class="c0"><span class="c2">.risk-card.high { background: var(&ndash;red-light); border-color: #fca5a5; }</span></p><p class="c0"><span class="c2">.risk-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; opacity: 0.7; }</span></p><p class="c0"><span class="c2">.risk-score { font-family: &lsquo;DM Serif Display&rsquo;, serif; font-size: 2rem; line-height: 1; margin-bottom: 0.25rem; }</span></p><p class="c0"><span class="c2">.risk-card.low .risk-score { color: var(&ndash;green); }</span></p><p class="c0"><span class="c2">.risk-card.moderate .risk-score { color: var(&ndash;amber); }</span></p><p class="c0"><span class="c2">.risk-card.high .risk-score { color: var(&ndash;red); }</span></p><p class="c0"><span class="c2">.risk-pct { font-size: 0.7rem; font-weight: 500; opacity: 0.65; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.score-bar-wrap { margin-bottom: 0.6rem; }</span></p><p class="c0"><span class="c2">.score-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.3rem; }</span></p><p class="c0"><span class="c2">.score-bar-label span:first-child { font-weight: 500; color: var(&ndash;gray-700); }</span></p><p class="c0"><span class="c2">.score-bar-label span:last-child { font-weight: 600; color: var(&ndash;indigo); }</span></p><p class="c0"><span class="c2">.score-bar-track { height: 8px; background: var(&ndash;gray-100); border-radius: 4px; overflow: hidden; }</span></p><p class="c0"><span class="c2">.score-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }</span></p><p class="c0"><span class="c2">.fill-low { background: linear-gradient(90deg, #86efac, #22c55e); }</span></p><p class="c0"><span class="c2">.fill-mod { background: linear-gradient(90deg, #fcd34d, #f59e0b); }</span></p><p class="c0"><span class="c2">.fill-high { background: linear-gradient(90deg, #fca5a5, #ef4444); }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.ai-box {</span></p><p class="c0"><span class="c2">background: linear-gradient(135deg, var(&ndash;indigo) 0%, #312e81 100%);</span></p><p class="c0"><span class="c2">border-radius: 14px; padding: 1.5rem;</span></p><p class="c0"><span class="c2">color: white; margin-top: 1.5rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.ai-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }</span></p><p class="c0"><span class="c2">.ai-badge {</span></p><p class="c0"><span class="c2">background: rgba(165,180,252,0.2);</span></p><p class="c0"><span class="c2">border: 1px solid rgba(165,180,252,0.4);</span></p><p class="c0"><span class="c2">color: #a5b4fc; font-size: 0.7rem; font-weight: 600;</span></p><p class="c0"><span class="c2">padding: 0.2rem 0.6rem; border-radius: 100px;</span></p><p class="c0"><span class="c2">letter-spacing: 0.08em; text-transform: uppercase;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.ai-title { font-family: &lsquo;DM Serif Display&rsquo;, serif; font-size: 1.1rem; color: white; }</span></p><p class="c0"><span class="c2">.ai-content { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.85); }</span></p><p class="c0"><span class="c2">.ai-content strong { color: #a5b4fc; }</span></p><p class="c0"><span class="c2">.ai-loading {</span></p><p class="c0"><span class="c2">display: flex; align-items: center; gap: 0.75rem;</span></p><p class="c0"><span class="c2">color: rgba(255,255,255,0.6); font-size: 0.85rem;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.spinner {</span></p><p class="c0"><span class="c2">width: 20px; height: 20px;</span></p><p class="c0"><span class="c2">border: 2px solid rgba(255,255,255,0.2);</span></p><p class="c0"><span class="c2">border-top-color: #a5b4fc;</span></p><p class="c0"><span class="c2">border-radius: 50%;</span></p><p class="c0"><span class="c2">animation: spin 0.8s linear infinite;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">@keyframes spin { to { transform: rotate(360deg); } }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">.disclaimer {</span></p><p class="c0"><span class="c2">background: var(&ndash;amber-light);</span></p><p class="c0"><span class="c2">border: 1px solid #fcd34d;</span></p><p class="c0"><span class="c2">border-radius: 10px;</span></p><p class="c0"><span class="c2">padding: 0.85rem 1rem;</span></p><p class="c0"><span class="c2">font-size: 0.78rem; color: var(&ndash;amber);</span></p><p class="c0"><span class="c2">margin-top: 1rem; line-height: 1.5;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">.disclaimer strong { color: var(&ndash;amber); }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Chip row &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }</span></p><p class="c0"><span class="c2">.chip {</span></p><p class="c0"><span class="c2">background: var(&ndash;purple-light); color: var(&ndash;purple);</span></p><p class="c0"><span class="c2">border-radius: 100px; padding: 0.2rem 0.65rem;</span></p><p class="c0"><span class="c2">font-size: 0.72rem; font-weight: 500;</span></p><p class="c0"><span class="c2">font-family: &lsquo;JetBrains Mono&rsquo;, monospace;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; divider &#9472;&#9472; */</span></p><p class="c0"><span class="c2">hr { border: none; border-top: 1px solid var(&ndash;gray-200); margin: 1.25rem 0; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">/* &#9472;&#9472; Tooltip &#9472;&#9472; */</span></p><p class="c0"><span class="c2">.info { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(&ndash;gray-200); color: var(&ndash;gray-500); font-size: 0.65rem; font-weight: 700; text-align: center; line-height: 16px; cursor: help; margin-left: 0.3rem; vertical-align: middle; }</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/style&gt;</span></p><p class="c0"><span class="c2">&lt;/head&gt;</span></p><p class="c0"><span class="c2">&lt;body&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;header&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;header-badge&quot;&gt;2026 Future Science Innovators &middot; Prototype&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;h1&gt;Genome&lt;span&gt;Guide&lt;/span&gt;&lt;/h1&gt;</span></p><p class="c0"><span class="c2">&lt;p&gt;Personalized disease prevention powered by your genetic risk profile and lifestyle data&lt;/p&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;progress-bar&quot; id=&quot;progressBar&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-dot active&quot; id=&quot;dot1&quot;&gt;&lt;div class=&quot;dot&quot;&gt;1&lt;/div&gt;&lt;span&gt;Profile&lt;/span&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-line&quot; id=&quot;line1&quot;&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-dot&quot; id=&quot;dot2&quot;&gt;&lt;div class=&quot;dot&quot;&gt;2&lt;/div&gt;&lt;span&gt;Genetics&lt;/span&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-line&quot; id=&quot;line2&quot;&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-dot&quot; id=&quot;dot3&quot;&gt;&lt;div class=&quot;dot&quot;&gt;3&lt;/div&gt;&lt;span&gt;Lifestyle&lt;/span&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-line&quot; id=&quot;line3&quot;&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;step-dot&quot; id=&quot;dot4&quot;&gt;&lt;div class=&quot;dot&quot;&gt;4&lt;/div&gt;&lt;span&gt;Results&lt;/span&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/header&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;main&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;!-- &#9472;&#9472; Step 1: Basic Profile &#9472;&#9472; --&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;section active&quot; id=&quot;step1&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;section-header&quot;&gt;</span></p><p class="c0"><span class="c4">&lt;div class=&quot;section-icon&quot;&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#128100;" src="images/image5.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div&gt;&lt;div class=&quot;section-title&quot;&gt;Basic Profile&lt;/div&gt;&lt;div class=&quot;section-sub&quot;&gt;Used to calibrate population-specific risk thresholds&lt;/div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">```</span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Age &lt;span&gt;(years)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;input type=&quot;number&quot; id=&quot;age&quot; min=&quot;18&quot; max=&quot;90&quot; placeholder=&quot;e.g. 45&quot; value=&quot;&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Biological Sex&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;sexGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;sexGroup&#39;,this,&#39;sex&#39;,&#39;Male&#39;)&quot;&gt;Male&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;sexGroup&#39;,this,&#39;sex&#39;,&#39;Female&#39;)&quot;&gt;Female&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;sexGroup&#39;,this,&#39;sex&#39;,&#39;Other/Prefer not to say&#39;)&quot;&gt;Prefer not to say&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Ancestry / Ethnicity &lt;span&gt;(affects SNP prevalence estimates)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;select id=&quot;ethnicity&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;option value=&quot;&quot;&gt;Select&hellip;&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;European / White&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;African / Black&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;East Asian&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;South Asian&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;Hispanic / Latino&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;Ashkenazi Jewish&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;option&gt;Mixed / Other&lt;/option&gt;</span></p><p class="c0"><span class="c2">&lt;/select&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Family History &lt;span&gt;(check all that apply)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;famHist&quot; style=&quot;flex-direction:column;align-items:flex-start;&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label style=&quot;display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;T2D&quot; onchange=&quot;updateFamHist(this)&quot;&gt; Type 2 Diabetes in parent or sibling&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;label style=&quot;display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;CVD&quot; onchange=&quot;updateFamHist(this)&quot;&gt; Heart disease or stroke before age 60&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;label style=&quot;display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;Cancer&quot; onchange=&quot;updateFamHist(this)&quot;&gt; Breast, ovarian, or prostate cancer&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;label style=&quot;display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;Alzheimers&quot; onchange=&quot;updateFamHist(this)&quot;&gt; Alzheimer&#39;s or dementia&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;label style=&quot;display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;&quot;&gt;&lt;input type=&quot;checkbox&quot; value=&quot;HTN&quot; onchange=&quot;updateFamHist(this)&quot;&gt; High blood pressure requiring medication&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;btn-nav&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-primary&quot; onclick=&quot;goTo(2)&quot;&gt;Next: Genetics &rarr;&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">```</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;!-- &#9472;&#9472; Step 2: Genetic Risk Factors &#9472;&#9472; --&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;section&quot; id=&quot;step2&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;section-header&quot;&gt;</span></p><p class="c0"><span class="c4">&lt;div class=&quot;section-icon&quot;&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#129516;" src="images/image2.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div&gt;&lt;div class=&quot;section-title&quot;&gt;Genetic Risk Factors&lt;/div&gt;&lt;div class=&quot;section-sub&quot;&gt;Select SNPs you carry (from a genetic test) or leave blank for average population risk&lt;/div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">```</span></p><p class="c0"><span class="c2">&lt;p style=&quot;font-size:0.82rem;color:var(--gray-500);margin-bottom:1rem;line-height:1.5;&quot;&gt;</span></p><p class="c0"><span class="c2">Each SNP below is sourced from the &lt;strong&gt;NHGRI-EBI GWAS Catalog&lt;/strong&gt; &mdash; the world&#39;s authoritative database of genome-wide association study findings. Check any risk variants you carry. If you don&#39;t have genetic test data, leave all unchecked (you&#39;ll receive average population risk estimates).</span></p><p class="c0"><span class="c2">&lt;/p&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;&quot;&gt;Type 2 Diabetes&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-grid&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;TCF7L2_rs7903146&#39;,1.37,&#39;T2D&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;TCF7L2 &middot; rs7903146&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Type 2 Diabetes&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.37 &middot; strongest T2D variant&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;PPARG_rs1801282&#39;,1.14,&#39;T2D&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;PPARG &middot; rs1801282&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Type 2 Diabetes&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.14 &middot; insulin sensitivity&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;KCNJ11_rs5219&#39;,1.15,&#39;T2D&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;KCNJ11 &middot; rs5219&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Type 2 Diabetes&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.15 &middot; beta cell function&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;hr&gt;</span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;&quot;&gt;Cardiovascular Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-grid&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;9p21_rs10757278&#39;,1.62,&#39;CVD&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;9p21 &middot; rs10757278&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Cardiovascular Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.62 &middot; doubles CVD risk&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;APOE_e4&#39;,3.0,&#39;CVD&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;APOE &epsilon;4 &middot; rs429358&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;CVD + Alzheimer&#39;s&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 3.0 &middot; major risk allele&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;LPA_rs10455872&#39;,1.5,&#39;CVD&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;LPA &middot; rs10455872&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Cardiovascular Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.5 &middot; elevated Lp(a)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;hr&gt;</span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;&quot;&gt;Cancer&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-grid&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;BRCA1_variant&#39;,8.0,&#39;Cancer&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;BRCA1 &middot; pathogenic&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Breast / Ovarian Cancer&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 8.0 &middot; high-penetrance variant&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;FGFR2_rs2981582&#39;,1.26,&#39;Cancer&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;FGFR2 &middot; rs2981582&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Breast Cancer&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.26 &middot; common low-risk variant&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;HSD3B1_rs1926722&#39;,1.19,&#39;Cancer&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;HSD3B1 &middot; rs1926722&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Prostate Cancer&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.19 &middot; androgen metabolism&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;hr&gt;</span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;&quot;&gt;Alzheimer&#39;s Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-grid&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;BIN1_rs744373&#39;,1.15,&#39;Alzheimers&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;BIN1 &middot; rs744373&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Alzheimer&#39;s Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.15 &middot; 2nd most common AD SNP&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;CLU_rs11136000&#39;,1.16,&#39;Alzheimers&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;CLU &middot; rs11136000&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Alzheimer&#39;s Disease&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.16 &middot; clusterin pathway&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;hr&gt;</span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;&quot;&gt;Hypertension&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-grid&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;ACE_rs4646994&#39;,1.22,&#39;HTN&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;ACE &middot; rs4646994&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Hypertension&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.22 &middot; ACE I/D polymorphism&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-card&quot; onclick=&quot;toggleSNP(this,&#39;AGT_rs699&#39;,1.18,&#39;HTN&#39;)&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-name&quot;&gt;AGT &middot; rs699&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-disease&quot;&gt;Hypertension&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;snp-risk&quot;&gt;OR = 1.18 &middot; angiotensinogen&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;btn-nav&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-secondary&quot; onclick=&quot;goTo(1)&quot;&gt;&larr; Back&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-primary&quot; onclick=&quot;goTo(3)&quot;&gt;Next: Lifestyle &rarr;&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">```</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;!-- &#9472;&#9472; Step 3: Lifestyle &#9472;&#9472; --&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;section&quot; id=&quot;step3&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;section-header&quot;&gt;</span></p><p class="c0"><span class="c4">&lt;div class=&quot;section-icon&quot;&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#127939;" src="images/image7.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div&gt;&lt;div class=&quot;section-title&quot;&gt;Lifestyle Factors&lt;/div&gt;&lt;div class=&quot;section-sub&quot;&gt;Lifestyle modifies genetic risk &mdash; sometimes dramatically&lt;/div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">```</span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Physical Activity &lt;span&gt;(days per week with 30+ min moderate exercise)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;exerciseGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;exerciseGroup&#39;,this,&#39;exercise&#39;,&#39;0&#39;)&quot;&gt;0 days&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;exerciseGroup&#39;,this,&#39;exercise&#39;,&#39;1-2&#39;)&quot;&gt;1&ndash;2 days&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;exerciseGroup&#39;,this,&#39;exercise&#39;,&#39;3-4&#39;)&quot;&gt;3&ndash;4 days&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;exerciseGroup&#39;,this,&#39;exercise&#39;,&#39;5+&#39;)&quot;&gt;5+ days&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Diet Quality&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;dietGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;dietGroup&#39;,this,&#39;diet&#39;,&#39;poor&#39;)&quot;&gt;Poor (mostly processed)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;dietGroup&#39;,this,&#39;diet&#39;,&#39;average&#39;)&quot;&gt;Average&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;dietGroup&#39;,this,&#39;diet&#39;,&#39;good&#39;)&quot;&gt;Good (whole foods)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;dietGroup&#39;,this,&#39;diet&#39;,&#39;excellent&#39;)&quot;&gt;Excellent (Mediterranean)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;BMI Range&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;bmiGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;bmiGroup&#39;,this,&#39;bmi&#39;,&#39;under&#39;)&quot;&gt;Underweight (&lt;18.5)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;bmiGroup&#39;,this,&#39;bmi&#39;,&#39;normal&#39;)&quot;&gt;Normal (18.5&ndash;25)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;bmiGroup&#39;,this,&#39;bmi&#39;,&#39;over&#39;)&quot;&gt;Overweight (25&ndash;30)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;bmiGroup&#39;,this,&#39;bmi&#39;,&#39;obese&#39;)&quot;&gt;Obese (30+)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Average Sleep &lt;span&gt;(hours per night)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;slider-wrap&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;input type=&quot;range&quot; id=&quot;sleep&quot; min=&quot;4&quot; max=&quot;11&quot; step=&quot;0.5&quot; value=&quot;7&quot; oninput=&quot;document.getElementById(&#39;sleepVal&#39;).textContent=this.value&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;slider-val&quot; id=&quot;sleepVal&quot;&gt;7&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Stress Level &lt;span&gt;(typical daily stress)&lt;/span&gt;&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;slider-wrap&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;input type=&quot;range&quot; id=&quot;stress&quot; min=&quot;1&quot; max=&quot;10&quot; value=&quot;4&quot; oninput=&quot;document.getElementById(&#39;stressVal&#39;).textContent=this.value&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;slider-val&quot; id=&quot;stressVal&quot;&gt;4&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Smoking Status&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;smokingGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;smokingGroup&#39;,this,&#39;smoking&#39;,&#39;never&#39;)&quot;&gt;Never smoked&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;smokingGroup&#39;,this,&#39;smoking&#39;,&#39;former&#39;)&quot;&gt;Former smoker&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;smokingGroup&#39;,this,&#39;smoking&#39;,&#39;current&#39;)&quot;&gt;Current smoker&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;field&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;label&gt;Alcohol Consumption&lt;/label&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-group&quot; id=&quot;alcoholGroup&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;alcoholGroup&#39;,this,&#39;alcohol&#39;,&#39;none&#39;)&quot;&gt;None&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;alcoholGroup&#39;,this,&#39;alcohol&#39;,&#39;light&#39;)&quot;&gt;Light (1&ndash;3/week)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;alcoholGroup&#39;,this,&#39;alcohol&#39;,&#39;moderate&#39;)&quot;&gt;Moderate (4&ndash;7/week)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;radio-btn&quot; onclick=&quot;selectRadio(&#39;alcoholGroup&#39;,this,&#39;alcohol&#39;,&#39;heavy&#39;)&quot;&gt;Heavy (8+/week)&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;btn-nav&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-secondary&quot; onclick=&quot;goTo(2)&quot;&gt;&larr; Back&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-primary&quot; onclick=&quot;calculateAndShow()&quot;&gt;Generate My Prevention Plan &rarr;&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">```</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;!-- &#9472;&#9472; Step 4: Results &#9472;&#9472; --&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;section results-section&quot; id=&quot;step4&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;section-header&quot;&gt;</span></p><p class="c0"><span class="c4">&lt;div class=&quot;section-icon&quot;&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#128202;" src="images/image8.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div&gt;&lt;div class=&quot;section-title&quot;&gt;Your Personalized Risk Profile&lt;/div&gt;&lt;div class=&quot;section-sub&quot;&gt;Combined genetic + lifestyle analysis&lt;/div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">```</span></p><p class="c0"><span class="c2">&lt;div id=&quot;snpChips&quot; style=&quot;margin-bottom:1rem;&quot;&gt;&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;risk-cards&quot; id=&quot;riskCards&quot;&gt;&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;hr&gt;</span></p><p class="c0"><span class="c2">&lt;div style=&quot;font-size:0.85rem;font-weight:600;color:var(--gray-700);margin-bottom:0.75rem;&quot;&gt;Detailed Risk Breakdown&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div id=&quot;scoreBreakdown&quot;&gt;&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;ai-box&quot; id=&quot;aiBox&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;ai-header&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;ai-badge&quot;&gt;AI Analysis&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;ai-title&quot;&gt;Generating your personalized prevention plan&hellip;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div id=&quot;aiContent&quot; class=&quot;ai-loading&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;spinner&quot;&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;span&gt;Analyzing your genetic + lifestyle profile with Claude AI&hellip;&lt;/span&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;disclaimer&quot;&gt;</span></p><p class="c0"><span class="c4">&lt;strong&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#9888;&#65039;" src="images/image6.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&nbsp;Educational Tool Only.&lt;/strong&gt; GenomeGuide uses published GWAS data to demonstrate personalized medicine concepts. It does not provide medical advice, use real genetic data, or replace a physician or genetic counselor. All recommendations are for educational purposes only.</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;div class=&quot;btn-nav&quot; style=&quot;margin-top:1.5rem;&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-secondary&quot; onclick=&quot;goTo(3)&quot;&gt;&larr; Edit Lifestyle&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;button class=&quot;btn btn-primary&quot; onclick=&quot;location.reload()&quot;&gt;Start Over&lt;/button&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0"><span class="c2">```</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/div&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/main&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;script&gt;</span></p><p class="c0"><span class="c2">// &#9472;&#9472; State &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</span></p><p class="c0"><span class="c2">const state = {</span></p><p class="c0"><span class="c2">age: &#39;&#39;, sex: &#39;&#39;, ethnicity: &#39;&#39;,</span></p><p class="c0"><span class="c2">famHist: [],</span></p><p class="c0"><span class="c2">snps: {}, // { snpId: { or, disease } }</span></p><p class="c0"><span class="c2">exercise: &#39;&#39;, diet: &#39;&#39;, bmi: &#39;&#39;,</span></p><p class="c0"><span class="c2">sleep: 7, stress: 4,</span></p><p class="c0"><span class="c2">smoking: &#39;&#39;, alcohol: &#39;&#39;</span></p><p class="c0"><span class="c2">};</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function selectRadio(groupId, el, key, val) {</span></p><p class="c0"><span class="c2">document.querySelectorAll(`#${groupId} .radio-btn`).forEach(b =&gt; b.classList.remove(&#39;selected&#39;));</span></p><p class="c0"><span class="c2">el.classList.add(&#39;selected&#39;);</span></p><p class="c0"><span class="c2">state[key] = val;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function updateFamHist(cb) {</span></p><p class="c0"><span class="c2">if (cb.checked) { if (!state.famHist.includes(cb.value)) state.famHist.push(cb.value); }</span></p><p class="c0"><span class="c2">else { state.famHist = state.famHist.filter(v =&gt; v !== cb.value); }</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function toggleSNP(el, id, or, disease) {</span></p><p class="c0"><span class="c2">if (el.classList.contains(&#39;selected&#39;)) {</span></p><p class="c0"><span class="c2">el.classList.remove(&#39;selected&#39;);</span></p><p class="c0"><span class="c2">delete state.snps[id];</span></p><p class="c0"><span class="c2">} else {</span></p><p class="c0"><span class="c2">el.classList.add(&#39;selected&#39;);</span></p><p class="c0"><span class="c2">state.snps[id] = { or, disease };</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// &#9472;&#9472; Navigation &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</span></p><p class="c0"><span class="c2">function goTo(step) {</span></p><p class="c0"><span class="c2">document.querySelectorAll(&#39;.section&#39;).forEach(s =&gt; s.classList.remove(&#39;active&#39;));</span></p><p class="c0"><span class="c2">const target = document.getElementById(&#39;step&#39; + step);</span></p><p class="c0"><span class="c2">if (target) { target.classList.add(&#39;active&#39;); }</span></p><p class="c0"><span class="c2">// update progress dots</span></p><p class="c0"><span class="c2">for (let i = 1; i &lt;= 4; i++) {</span></p><p class="c0"><span class="c2">const dot = document.getElementById(&#39;dot&#39; + i);</span></p><p class="c0"><span class="c2">const line = document.getElementById(&#39;line&#39; + i);</span></p><p class="c0"><span class="c2">dot.classList.remove(&#39;active&#39;,&#39;done&#39;);</span></p><p class="c0"><span class="c2">if (line) line.classList.remove(&#39;done&#39;);</span></p><p class="c0"><span class="c2">if (i &lt; step) { dot.classList.add(&#39;done&#39;); if (line) line.classList.add(&#39;done&#39;); }</span></p><p class="c0"><span class="c2">if (i === step) dot.classList.add(&#39;active&#39;);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">window.scrollTo({top:0,behavior:&#39;smooth&#39;});</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// &#9472;&#9472; PRS Calculation &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</span></p><p class="c0"><span class="c2">const DISEASES = [&#39;T2D&#39;,&#39;CVD&#39;,&#39;Cancer&#39;,&#39;Alzheimers&#39;,&#39;HTN&#39;];</span></p><p class="c0"><span class="c2">const DISEASE_LABELS = {</span></p><p class="c0"><span class="c2">T2D: &#39;Type 2 Diabetes&#39;, CVD: &#39;Cardiovascular&#39;, Cancer: &#39;Cancer&#39;,</span></p><p class="c0"><span class="c2">Alzheimers: &quot;Alzheimer&#39;s&quot;, HTN: &#39;Hypertension&#39;</span></p><p class="c0"><span class="c2">};</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function calcPRS(disease) {</span></p><p class="c0"><span class="c2">let logSum = 0;</span></p><p class="c0"><span class="c2">Object.values(state.snps).forEach(snp =&gt; {</span></p><p class="c0"><span class="c2">if (snp.disease === disease) logSum += Math.log(snp.or);</span></p><p class="c0"><span class="c2">});</span></p><p class="c0"><span class="c2">// Baseline population average &asymp; 0.3 (some always carry minor alleles)</span></p><p class="c0"><span class="c2">const baseline = 0.3;</span></p><p class="c0"><span class="c2">return baseline + logSum;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function calcLifestyleRisk() {</span></p><p class="c0"><span class="c2">let score = 0;</span></p><p class="c0"><span class="c2">// Exercise (max 10)</span></p><p class="c0"><span class="c2">const ex = { &#39;5+&#39;:0, &#39;3-4&#39;:3, &#39;1-2&#39;:7, &#39;0&#39;:10 };</span></p><p class="c0"><span class="c2">score += (ex[state.exercise] ?? 5);</span></p><p class="c0"><span class="c2">// Diet (max 10)</span></p><p class="c0"><span class="c2">const diet = { excellent:0, good:2, average:6, poor:10 };</span></p><p class="c0"><span class="c2">score += (diet[state.diet] ?? 5);</span></p><p class="c0"><span class="c2">// BMI (max 10)</span></p><p class="c0"><span class="c2">const bmi = { normal:0, under:3, over:6, obese:10 };</span></p><p class="c0"><span class="c2">score += (bmi[state.bmi] ?? 4);</span></p><p class="c0"><span class="c2">// Sleep (max 6)</span></p><p class="c0"><span class="c2">const sl = parseFloat(document.getElementById(&#39;sleep&#39;).value);</span></p><p class="c0"><span class="c2">score += (sl &gt;= 7 &amp;&amp; sl &lt;= 8) ? 0 : (sl &gt;= 6 || sl &lt;= 9) ? 3 : 6;</span></p><p class="c0"><span class="c2">// Stress (max 6)</span></p><p class="c0"><span class="c2">const st = parseInt(document.getElementById(&#39;stress&#39;).value);</span></p><p class="c0"><span class="c2">score += st &lt;= 3 ? 0 : st &lt;= 6 ? 3 : 6;</span></p><p class="c0"><span class="c2">// Smoking (max 8)</span></p><p class="c0"><span class="c2">const sm = { never:0, former:3, current:8 };</span></p><p class="c0"><span class="c2">score += (sm[state.smoking] ?? 0);</span></p><p class="c0"><span class="c2">// Alcohol (max 8)</span></p><p class="c0"><span class="c2">const al = { none:0, light:1, moderate:4, heavy:8 };</span></p><p class="c0"><span class="c2">score += (al[state.alcohol] ?? 0);</span></p><p class="c0"><span class="c2">// Normalize to 0&ndash;100</span></p><p class="c0"><span class="c2">return Math.min(100, (score / 58) * 100);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function calcCombinedRisk(disease) {</span></p><p class="c0"><span class="c2">const prs = calcPRS(disease);</span></p><p class="c0"><span class="c2">const prsNorm = Math.min(100, (prs / 2.5) * 100);</span></p><p class="c0"><span class="c2">const lifestyle = calcLifestyleRisk();</span></p><p class="c0"><span class="c2">const famBonus = state.famHist.includes(disease) ? 20 : 0;</span></p><p class="c0"><span class="c2">const combined = (prsNorm * 0.4) + (lifestyle * 0.4) + (famBonus * 0.2) + (Math.min(20,(state.age||40)/5)*0.2);</span></p><p class="c0"><span class="c2">return Math.min(99, Math.round(combined));</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function riskLevel(score) {</span></p><p class="c0"><span class="c2">if (score &lt; 35) return &#39;low&#39;;</span></p><p class="c0"><span class="c2">if (score &lt; 65) return &#39;moderate&#39;;</span></p><p class="c0"><span class="c2">return &#39;high&#39;;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">function riskEmoji(score) {</span></p><p class="c0"><span class="c4">if (score &lt; 35) return &#39;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#9989;" src="images/image1.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&#39;;</span></p><p class="c0"><span class="c4">if (score &lt; 65) return &#39;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#9888;&#65039;" src="images/image6.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&#39;;</span></p><p class="c0"><span class="c4">return &#39;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#128308;" src="images/image9.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&#39;;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">function fillClass(score) {</span></p><p class="c0"><span class="c2">if (score &lt; 35) return &#39;fill-low&#39;;</span></p><p class="c0"><span class="c2">if (score &lt; 65) return &#39;fill-mod&#39;;</span></p><p class="c0"><span class="c2">return &#39;fill-high&#39;;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// &#9472;&#9472; Render Results &#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;</span></p><p class="c0"><span class="c2">function calculateAndShow() {</span></p><p class="c0"><span class="c2">state.sleep = parseFloat(document.getElementById(&#39;sleep&#39;).value);</span></p><p class="c0"><span class="c2">state.stress = parseInt(document.getElementById(&#39;stress&#39;).value);</span></p><p class="c0"><span class="c2">state.age = document.getElementById(&#39;age&#39;).value || &#39;40&#39;;</span></p><p class="c0"><span class="c2">state.ethnicity = document.getElementById(&#39;ethnicity&#39;).value || &#39;Not specified&#39;;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">const scores = {};</span></p><p class="c0"><span class="c2">DISEASES.forEach(d =&gt; { scores[d] = calcCombinedRisk(d); });</span></p><p class="c0"><span class="c2">const sorted = [...DISEASES].sort((a,b) =&gt; scores[b]-scores[a]);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// SNP chips</span></p><p class="c0"><span class="c2">const chipDiv = document.getElementById(&#39;snpChips&#39;);</span></p><p class="c0"><span class="c2">const snpIds = Object.keys(state.snps);</span></p><p class="c0"><span class="c2">if (snpIds.length &gt; 0) {</span></p><p class="c0"><span class="c2">chipDiv.innerHTML = &#39;&lt;div style=&quot;font-size:0.78rem;font-weight:600;color:var(--gray-500);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.08em;&quot;&gt;Risk SNPs detected:&lt;/div&gt;&lt;div class=&quot;chip-row&quot;&gt;&#39; +</span></p><p class="c0"><span class="c2">snpIds.map(id =&gt; `&lt;div class=&quot;chip&quot;&gt;${id.replace(/_/g,&#39; &#39;).split(&#39; &#39;).slice(0,2).join(&#39; &#39;)}&lt;/div&gt;`).join(&#39;&#39;) +</span></p><p class="c0"><span class="c2">&#39;&lt;/div&gt;&#39;;</span></p><p class="c0"><span class="c2">} else {</span></p><p class="c0"><span class="c2">chipDiv.innerHTML = &#39;&lt;div style=&quot;font-size:0.82rem;color:var(--gray-500);&quot;&gt;No specific risk SNPs entered &mdash; using average population genetic risk baselines.&lt;/div&gt;&#39;;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// Risk cards</span></p><p class="c0"><span class="c2">const cardsDiv = document.getElementById(&#39;riskCards&#39;);</span></p><p class="c0"><span class="c2">cardsDiv.innerHTML = DISEASES.map(d =&gt; {</span></p><p class="c0"><span class="c2">const s = scores[d]; const lvl = riskLevel(s);</span></p><p class="c0"><span class="c2">return `&lt;div class=&quot;risk-card ${lvl}&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;risk-label&quot;&gt;${DISEASE_LABELS[d]}&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;risk-score&quot;&gt;${s}&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;risk-pct&quot;&gt;${lvl.charAt(0).toUpperCase()+lvl.slice(1)} risk&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;`;</span></p><p class="c0"><span class="c2">}).join(&#39;&#39;);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// Score breakdown bars</span></p><p class="c0"><span class="c2">const breakDiv = document.getElementById(&#39;scoreBreakdown&#39;);</span></p><p class="c0"><span class="c2">breakDiv.innerHTML = sorted.map(d =&gt; {</span></p><p class="c0"><span class="c2">const s = scores[d];</span></p><p class="c0"><span class="c2">return `&lt;div class=&quot;score-bar-wrap&quot;&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;score-bar-label&quot;&gt;&lt;span&gt;${riskEmoji(s)} ${DISEASE_LABELS[d]}&lt;/span&gt;&lt;span&gt;${s}/100&lt;/span&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;div class=&quot;score-bar-track&quot;&gt;&lt;div class=&quot;score-bar-fill ${fillClass(s)}&quot; style=&quot;width:0%&quot; id=&quot;bar_${d}&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p><p class="c0"><span class="c2">&lt;/div&gt;`;</span></p><p class="c0"><span class="c2">}).join(&#39;&#39;);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">goTo(4);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// Animate bars</span></p><p class="c0"><span class="c2">setTimeout(() =&gt; {</span></p><p class="c0"><span class="c2">sorted.forEach(d =&gt; {</span></p><p class="c0"><span class="c2">const bar = document.getElementById(&#39;bar_&#39;+d);</span></p><p class="c0"><span class="c2">if (bar) bar.style.width = scores[d] + &#39;%&#39;;</span></p><p class="c0"><span class="c2">});</span></p><p class="c0"><span class="c2">}, 200);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">// AI Recommendation</span></p><p class="c0"><span class="c2">fetchAIRecommendation(scores, sorted);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">async function fetchAIRecommendation(scores, sorted) {</span></p><p class="c0"><span class="c2">const top3 = sorted.slice(0,3);</span></p><p class="c0"><span class="c2">const snpList = Object.keys(state.snps).length &gt; 0</span></p><p class="c0"><span class="c2">? Object.keys(state.snps).map(id =&gt; `${id} (OR=${state.snps[id].or})`).join(&#39;, &#39;)</span></p><p class="c0"><span class="c2">: &#39;No specific risk SNPs identified (using population averages)&#39;;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">const prompt = `You are GenomeGuide, an AI-powered personalized medicine education tool. A user has entered their profile and you must generate a personalized prevention plan.</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">USER PROFILE:</span></p><p class="c0"><span class="c2">- Age: ${state.age || &#39;40&#39;}, Biological sex: ${state.sex || &#39;Not specified&#39;}, Ethnicity: ${state.ethnicity}</span></p><p class="c0"><span class="c2">- Family history: ${state.famHist.length &gt; 0 ? state.famHist.join(&#39;, &#39;) : &#39;None reported&#39;}</span></p><p class="c0"><span class="c2">- Risk SNPs carrying: ${snpList}</span></p><p class="c0"><span class="c2">- Exercise: ${state.exercise || &#39;Not specified&#39;} days/week</span></p><p class="c0"><span class="c2">- Diet: ${state.diet || &#39;Not specified&#39;}</span></p><p class="c0"><span class="c2">- BMI category: ${state.bmi || &#39;Not specified&#39;}</span></p><p class="c0"><span class="c2">- Sleep: ${state.sleep} hrs/night, Stress: ${state.stress}/10</span></p><p class="c0"><span class="c2">- Smoking: ${state.smoking || &#39;Not specified&#39;}, Alcohol: ${state.alcohol || &#39;Not specified&#39;}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">COMBINED RISK SCORES (genetic + lifestyle + family history, scale 0-100):</span></p><p class="c0"><span class="c2">${DISEASES.map(d =&gt; `- ${DISEASE_LABELS[d]}: ${scores[d]}/100 (${riskLevel(scores[d])} risk)`).join(&#39;\n&#39;)}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">TOP PRIORITY CONDITIONS: ${top3.map(d =&gt; DISEASE_LABELS[d]).join(&#39;, &#39;)}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">Generate a personalized prevention plan with these sections:</span></p><p class="c0"><span class="c2">1. **Priority Focus** (2-3 sentences): Which 2 conditions should this person focus on most and why, based on their specific genetic + lifestyle combination.</span></p><p class="c0"><span class="c2">2. **Personalized Actions** (4-6 bullet points): Specific, concrete prevention steps tailored to THIS person&#39;s actual risk factors. Reference their specific SNPs or lifestyle inputs where relevant. Not generic advice &mdash; mention specific numbers (e.g., sodium mg, exercise minutes).</span></p><p class="c0"><span class="c2">3. **Genetic Insight** (2-3 sentences): Explain how one specific SNP they carry changes their risk picture in plain language.</span></p><p class="c0"><span class="c2">4. **Screening Timeline**: When should they first discuss genetic counseling or specific screenings with a doctor?</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">Keep total response under 350 words. Use plain language understandable without medical training. Format with the bold headers above.`;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">try {</span></p><p class="c0"><span class="c4">const response = await fetch(&#39;</span><span class="c7"><a class="c5" href="https://www.google.com/url?q=https://api.anthropic.com/v1/messages&amp;sa=D&amp;source=editors&amp;ust=1777158230205641&amp;usg=AOvVaw0nM_aCrskKJUlN5OoH-cvD">https://api.anthropic.com/v1/messages</a></span><span class="c2">&#39;, {</span></p><p class="c0"><span class="c2">method: &#39;POST&#39;,</span></p><p class="c0"><span class="c2">headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</span></p><p class="c0"><span class="c2">body: JSON.stringify({</span></p><p class="c0"><span class="c2">model: &#39;claude-sonnet-4-6&#39;,</span></p><p class="c0"><span class="c2">max_tokens: 1000,</span></p><p class="c0"><span class="c2">messages: [{ role: &#39;user&#39;, content: prompt }]</span></p><p class="c0"><span class="c2">})</span></p><p class="c0"><span class="c2">});</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">if (!response.ok) throw new Error(&#39;API error&#39;);</span></p><p class="c0"><span class="c2">const data = await response.json();</span></p><p class="c0"><span class="c2">const text = data.content?.map(c =&gt; c.text || &#39;&#39;).join(&#39;&#39;) || &#39;&#39;;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">document.getElementById(&#39;aiContent&#39;).className = &#39;ai-content&#39;;</span></p><p class="c0"><span class="c2">document.getElementById(&#39;aiContent&#39;).innerHTML = formatAIText(text);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">} catch (err) {</span></p><p class="c0"><span class="c2">// Graceful fallback with pre-computed recommendations</span></p><p class="c0"><span class="c2">document.getElementById(&#39;aiContent&#39;).className = &#39;ai-content&#39;;</span></p><p class="c0"><span class="c2">document.getElementById(&#39;aiContent&#39;).innerHTML = generateFallback(scores, sorted);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function formatAIText(text) {</span></p><p class="c0"><span class="c2">return text</span></p><p class="c0"><span class="c2">.replace(/\*\*(.*?)\*\*/g, &#39;&lt;strong&gt;$1&lt;/strong&gt;&#39;)</span></p><p class="c0"><span class="c2">.replace(/\n\n/g, &#39;&lt;br&gt;&lt;br&gt;&#39;)</span></p><p class="c0"><span class="c2">.replace(/\n- /g, &#39;&lt;br&gt;&bull; &#39;)</span></p><p class="c0"><span class="c2">.replace(/\n\d+\. /g, match =&gt; &#39;&lt;br&gt;&#39; + match.trim() + &#39; &#39;);</span></p><p class="c0"><span class="c2">}</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">function generateFallback(scores, sorted) {</span></p><p class="c0"><span class="c2">const top = sorted[0];</span></p><p class="c0"><span class="c2">const topScore = scores[top];</span></p><p class="c0"><span class="c2">const snpList = Object.keys(state.snps);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">const actions = {</span></p><p class="c0"><span class="c2">T2D: [&#39;Limit refined carbohydrates; target &lt;25g added sugar/day&#39;,&#39;Walk 30 minutes after meals to improve insulin sensitivity&#39;,&#39;Get HbA1c tested annually starting now&#39;,&#39;Prioritize sleep: poor sleep worsens insulin resistance by up to 25%&#39;],</span></p><p class="c0"><span class="c2">CVD: [&#39;Achieve sodium intake &lt;1,500 mg/day to reduce blood pressure&#39;,&#39;Target 150+ min/week of moderate aerobic exercise&#39;,&#39;Ask your doctor about a baseline lipid panel including Lp(a)&#39;,&#39;Mediterranean diet shown to reduce CVD events by 30% in high-risk individuals&#39;],</span></p><p class="c0"><span class="c2">Cancer: [&#39;Schedule cancer genetic counseling given your SNP profile&#39;,&#39;Limit alcohol to &le;1 drink/day (alcohol is a Group 1 carcinogen)&#39;,&#39;Maintain BMI in normal range &mdash; each 5-unit BMI increase raises cancer risk 10-15%&#39;,&#39;Discuss age-appropriate cancer screenings with your physician now&#39;],</span></p><p class="c0"><span class="c2">Alzheimers: [&#39;Exercise 150 min/week: strongest single intervention for Alzheimer\&#39;s prevention&#39;,&#39;Prioritize 7-9 hours sleep: amyloid clearance occurs primarily during sleep&#39;,&#39;Manage cardiovascular risk &mdash; what\&#39;s good for the heart is good for the brain&#39;,&#39;Cognitive engagement (reading, learning new skills) builds neural reserve&#39;],</span></p><p class="c0"><span class="c2">HTN: [&#39;Reduce sodium intake to &lt;1,500 mg/day; read all food labels&#39;,&#39;DASH diet reduces blood pressure by 8-14 mmHg in clinical trials&#39;,&#39;Stress management: your stress score suggests this is a priority intervention&#39;,&#39;Monitor blood pressure at home and log monthly&#39;]</span></p><p class="c0"><span class="c2">};</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">const snpInsights = {</span></p><p class="c0"><span class="c2">&#39;TCF7L2_rs7903146&#39;: &#39;Your TCF7L2 variant affects how your gut releases insulin-stimulating hormones, making dietary carbohydrate management especially important for you specifically.&#39;,</span></p><p class="c0"><span class="c2">&#39;APOE_e4&#39;: &#39;APOE &epsilon;4 affects how your body processes fats and is the strongest known genetic risk factor for both Alzheimer\&#39;s and cardiovascular disease &mdash; making exercise and heart-healthy habits doubly important for you.&#39;,</span></p><p class="c0"><span class="c2">&#39;9p21_rs10757278&#39;: &#39;The 9p21 variant near the CDKN2A/B genes affects arterial wall cell regulation, increasing cardiovascular risk independently of traditional risk factors like cholesterol.&#39;,</span></p><p class="c0"><span class="c2">&#39;BRCA1_variant&#39;: &#39;BRCA1 variants significantly impair your cells\&#39; ability to repair damaged DNA, making early screening and minimizing environmental carcinogen exposure especially important for you.&#39;</span></p><p class="c0"><span class="c2">};</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">let insight = snpList.length &gt; 0 &amp;&amp; snpInsights[snpList[0]]</span></p><p class="c0"><span class="c4">? `&lt;strong&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#129516;" src="images/image2.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&nbsp;Genetic Insight:&lt;/strong&gt; ${snpInsights[snpList[0]]}&lt;br&gt;&lt;br&gt;`</span></p><p class="c0"><span class="c2">: &#39;&#39;;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">const topActions = (actions[top] || actions[&#39;CVD&#39;]).slice(0,4);</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c4">return `&lt;strong&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#127919;" src="images/image4.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&nbsp;Priority Focus:&lt;/strong&gt; Based on your combined genetic and lifestyle profile, your highest priority conditions are &lt;strong&gt;${DISEASE_LABELS[sorted[0]]}&lt;/strong&gt; (${scores[sorted[0]]}/100) and &lt;strong&gt;${DISEASE_LABELS[sorted[1]]}&lt;/strong&gt; (${scores[sorted[1]]}/100). ${topScore &gt;= 65 ? &#39;Your high combined risk score suggests proactive prevention steps are warranted now.&#39; : &#39;Your moderate risk level means preventive steps now can significantly shift your long-term trajectory.&#39;}&lt;br&gt;&lt;br&gt;</span></p><p class="c0"><span class="c4">&lt;strong&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#9989;" src="images/image1.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&nbsp;Personalized Actions:&lt;/strong&gt;&lt;br&gt;</span></p><p class="c0"><span class="c2">${topActions.map(a =&gt; `&bull; ${a}`).join(&#39;&lt;br&gt;&#39;)}&lt;br&gt;&lt;br&gt;</span></p><p class="c0"><span class="c2">${insight}</span></p><p class="c0"><span class="c4">&lt;strong&gt;</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 17.33px; height: 17.33px;"><img alt="&#128197;" src="images/image3.png" style="width: 17.33px; height: 17.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span class="c2">&nbsp;Screening Timeline:&lt;/strong&gt; Given your profile, discuss these risk factors with a physician within the next 6-12 months. ${snpList.length &gt; 0 ? &#39;Consider genetic counseling to understand your specific variants in a clinical context.&#39; : &#39;A family history discussion with your doctor can help contextualize your risk.&#39;}`;</span></p><p class="c0"><span class="c2">}</span></p><p class="c0"><span class="c2">&lt;/script&gt;</span></p><p class="c0 c1"><span class="c3"></span></p><p class="c0"><span class="c2">&lt;/body&gt;</span></p><p class="c0"><span class="c4">&lt;/html&gt;</span></p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenomeGuide — Personalized Medicine Decision Tool</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+–indigo: #1e1b4b;
+–purple: #4338ca;
+–violet: #7c3aed;
+–purple-light: #eef2ff;
+–teal: #0f766e;
+–teal-light: #ccfbf1;
+–amber: #b45309;
+–amber-light: #fef3c7;
+–red: #991b1b;
+–red-light: #fee2e2;
+–green: #166534;
+–green-light: #dcfce7;
+–gray-50: #f8fafc;
+–gray-100: #f1f5f9;
+–gray-200: #e2e8f0;
+–gray-500: #64748b;
+–gray-700: #334155;
+–gray-900: #0f172a;
+–white: #ffffff;
+}
+- { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–gray-50);
+color: var(–gray-900);
+min-height: 100vh;
+}
+/* ── Header ── */
+header {
+background: linear-gradient(135deg, var(–indigo) 0%, var(–purple) 60%, var(–violet) 100%);
+padding: 2.5rem 2rem 2rem;
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+header::before {
+content: ‘’;
+position: absolute; inset: 0;
+background: radial-gradient(ellipse at 30% 50%, rgba(124,58,237,0.3) 0%, transparent 60%),
+radial-gradient(ellipse at 70% 20%, rgba(99,102,241,0.2) 0%, transparent 50%);
+pointer-events: none;
+}
+.header-badge {
+display: inline-block;
+background: rgba(255,255,255,0.15);
+border: 1px solid rgba(255,255,255,0.3);
+color: rgba(255,255,255,0.9);
+font-size: 0.7rem;
+font-weight: 600;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 0.3rem 0.9rem;
+border-radius: 100px;
+margin-bottom: 1rem;
+}
+header h1 {
+font-family: ‘DM Serif Display’, serif;
+font-size: clamp(2.5rem, 6vw, 4rem);
+color: white;
+letter-spacing: -0.02em;
+line-height: 1;
+margin-bottom: 0.5rem;
+}
+header h1 span { color: #a5b4fc; }
+header p {
+color: rgba(255,255,255,0.75);
+font-size: 1rem;
+font-weight: 300;
+max-width: 520px;
+margin: 0 auto;
+}
+/* ── Progress ── */
+.progress-bar {
+display: flex;
+justify-content: center;
+gap: 0.5rem;
+padding: 1.5rem 2rem 0;
+flex-wrap: wrap;
+}
+.step-dot {
+display: flex; align-items: center; gap: 0.4rem;
+font-size: 0.75rem; font-weight: 500;
+color: rgba(255,255,255,0.45);
+transition: color 0.3s;
+}
+.step-dot.active { color: white; }
+.step-dot.done { color: #a5b4fc; }
+.dot {
+width: 28px; height: 28px; border-radius: 50%;
+border: 2px solid rgba(255,255,255,0.25);
+display: flex; align-items: center; justify-content: center;
+font-size: 0.7rem; font-weight: 600;
+transition: all 0.3s;
+}
+.step-dot.active .dot { background: white; color: var(–purple); border-color: white; }
+.step-dot.done .dot { background: #a5b4fc; color: var(–indigo); border-color: #a5b4fc; }
+.step-line { width: 24px; height: 2px; background: rgba(255,255,255,0.2); align-self: center; }
+.step-line.done { background: #a5b4fc; }
+/* ── Main ── */
+main { max-width: 780px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+/* ── Section card ── */
+.section {
+background: white;
+border-radius: 16px;
+border: 1px solid var(–gray-200);
+padding: 2rem;
+margin-bottom: 1.5rem;
+display: none;
+animation: fadeUp 0.4s ease;
+}
+.section.active { display: block; }
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(16px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.section-header {
+display: flex; align-items: center; gap: 0.75rem;
+margin-bottom: 1.5rem;
+}
+.section-icon {
+width: 40px; height: 40px; border-radius: 10px;
+background: var(–purple-light);
+display: flex; align-items: center; justify-content: center;
+font-size: 1.2rem; flex-shrink: 0;
+}
+.section-title { font-size: 1.2rem; font-weight: 600; color: var(–indigo); }
+.section-sub { font-size: 0.82rem; color: var(–gray-500); margin-top: 0.15rem; }
+/* ── Form elements ── */
+.field { margin-bottom: 1.25rem; }
+label {
+display: block;
+font-size: 0.85rem; font-weight: 500;
+color: var(–gray-700);
+margin-bottom: 0.4rem;
+}
+label span { font-weight: 400; color: var(–gray-500); margin-left: 0.25rem; }
+input[type=“number”], input[type=“text”], select {
+width: 100%; padding: 0.6rem 0.85rem;
+border: 1.5px solid var(–gray-200);
+border-radius: 8px;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem; color: var(–gray-900);
+background: var(–gray-50);
+transition: border-color 0.2s;
+outline: none;
+}
+input:focus, select:focus { border-color: var(–purple); background: white; }
+.radio-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.radio-btn {
+padding: 0.45rem 0.9rem;
+border: 1.5px solid var(–gray-200);
+border-radius: 8px;
+font-size: 0.83rem; font-weight: 500;
+color: var(–gray-700);
+cursor: pointer; transition: all 0.2s;
+background: var(–gray-50);
+user-select: none;
+}
+.radio-btn:hover { border-color: var(–purple); color: var(–purple); }
+.radio-btn.selected { background: var(–purple); color: white; border-color: var(–purple); }
+/* ── SNP toggles ── */
+.snp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+@media(max-width:500px){ .snp-grid { grid-template-columns: 1fr; } }
+.snp-card {
+border: 1.5px solid var(–gray-200);
+border-radius: 10px;
+padding: 0.75rem;
+cursor: pointer; transition: all 0.2s;
+background: var(–gray-50);
+}
+.snp-card:hover { border-color: var(–purple); }
+.snp-card.selected { border-color: var(–purple); background: var(–purple-light); }
+.snp-name { font-family: ‘JetBrains Mono’, monospace; font-size: 0.78rem; font-weight: 500; color: var(–purple); }
+.snp-disease { font-size: 0.72rem; color: var(–gray-500); margin-top: 0.15rem; }
+.snp-risk { font-size: 0.7rem; color: var(–red); font-weight: 500; margin-top: 0.2rem; }
+.snp-card.selected .snp-disease, .snp-card.selected .snp-risk { color: var(–indigo); }
+/* ── Slider ── */
+.slider-wrap { display: flex; align-items: center; gap: 1rem; }
+input[type=“range”] {
+flex: 1; height: 4px;
+-webkit-appearance: none;
+background: var(–gray-200); border-radius: 2px;
+outline: none;
+}
+input[type=“range”]::-webkit-slider-thumb {
+-webkit-appearance: none;
+width: 18px; height: 18px; border-radius: 50%;
+background: var(–purple); cursor: pointer;
+box-shadow: 0 0 0 3px rgba(67,56,202,0.2);
+}
+.slider-val {
+min-width: 2rem; text-align: center;
+font-weight: 600; color: var(–purple); font-size: 0.9rem;
+}
+/* ── Buttons ── */
+.btn {
+padding: 0.75rem 1.75rem;
+border-radius: 10px; border: none;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.9rem; font-weight: 600;
+cursor: pointer; transition: all 0.2s;
+}
+.btn-primary {
+background: linear-gradient(135deg, var(–purple), var(–violet));
+color: white; box-shadow: 0 4px 12px rgba(67,56,202,0.3);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(67,56,202,0.4); }
+.btn-secondary {
+background: var(–gray-100); color: var(–gray-700);
+}
+.btn-secondary:hover { background: var(–gray-200); }
+.btn-nav { display: flex; justify-content: space-between; margin-top: 1.5rem; gap: 1rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+/* ── Results ── */
+.results-section { display: none; }
+.results-section.active { display: block; }
+.risk-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
+.risk-card {
+border-radius: 12px; padding: 1rem;
+text-align: center; border: 1.5px solid transparent;
+transition: transform 0.2s;
+}
+.risk-card:hover { transform: translateY(-2px); }
+.risk-card.low { background: var(–green-light); border-color: #86efac; }
+.risk-card.moderate { background: var(–amber-light); border-color: #fcd34d; }
+.risk-card.high { background: var(–red-light); border-color: #fca5a5; }
+.risk-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; opacity: 0.7; }
+.risk-score { font-family: ‘DM Serif Display’, serif; font-size: 2rem; line-height: 1; margin-bottom: 0.25rem; }
+.risk-card.low .risk-score { color: var(–green); }
+.risk-card.moderate .risk-score { color: var(–amber); }
+.risk-card.high .risk-score { color: var(–red); }
+.risk-pct { font-size: 0.7rem; font-weight: 500; opacity: 0.65; }
+.score-bar-wrap { margin-bottom: 0.6rem; }
+.score-bar-label { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.3rem; }
+.score-bar-label span:first-child { font-weight: 500; color: var(–gray-700); }
+.score-bar-label span:last-child { font-weight: 600; color: var(–indigo); }
+.score-bar-track { height: 8px; background: var(–gray-100); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+.fill-low { background: linear-gradient(90deg, #86efac, #22c55e); }
+.fill-mod { background: linear-gradient(90deg, #fcd34d, #f59e0b); }
+.fill-high { background: linear-gradient(90deg, #fca5a5, #ef4444); }
+.ai-box {
+background: linear-gradient(135deg, var(–indigo) 0%, #312e81 100%);
+border-radius: 14px; padding: 1.5rem;
+color: white; margin-top: 1.5rem;
+}
+.ai-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.ai-badge {
+background: rgba(165,180,252,0.2);
+border: 1px solid rgba(165,180,252,0.4);
+color: #a5b4fc; font-size: 0.7rem; font-weight: 600;
+padding: 0.2rem 0.6rem; border-radius: 100px;
+letter-spacing: 0.08em; text-transform: uppercase;
+}
+.ai-title { font-family: ‘DM Serif Display’, serif; font-size: 1.1rem; color: white; }
+.ai-content { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.85); }
+.ai-content strong { color: #a5b4fc; }
+.ai-loading {
+display: flex; align-items: center; gap: 0.75rem;
+color: rgba(255,255,255,0.6); font-size: 0.85rem;
+}
+.spinner {
+width: 20px; height: 20px;
+border: 2px solid rgba(255,255,255,0.2);
+border-top-color: #a5b4fc;
+border-radius: 50%;
+animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.disclaimer {
+background: var(–amber-light);
+border: 1px solid #fcd34d;
+border-radius: 10px;
+padding: 0.85rem 1rem;
+font-size: 0.78rem; color: var(–amber);
+margin-top: 1rem; line-height: 1.5;
+}
+.disclaimer strong { color: var(–amber); }
+/* ── Chip row ── */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
+.chip {
+background: var(–purple-light); color: var(–purple);
+border-radius: 100px; padding: 0.2rem 0.65rem;
+font-size: 0.72rem; font-weight: 500;
+font-family: ‘JetBrains Mono’, monospace;
+}
+/* ── divider ── */
+hr { border: none; border-top: 1px solid var(–gray-200); margin: 1.25rem 0; }
+/* ── Tooltip ── */
+.info { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: var(–gray-200); color: var(–gray-500); font-size: 0.65rem; font-weight: 700; text-align: center; line-height: 16px; cursor: help; margin-left: 0.3rem; vertical-align: middle; }
+</style>
+</head>
+<body>
+<header>
+<div class="header-badge">2026 Future Science Innovators · Prototype</div>
+<h1>Genome<span>Guide</span></h1>
+<p>Personalized disease prevention powered by your genetic risk profile and lifestyle data</p>
+<div class="progress-bar" id="progressBar">
+<div class="step-dot active" id="dot1"><div class="dot">1</div><span>Profile</span></div>
+<div class="step-line" id="line1"></div>
+<div class="step-dot" id="dot2"><div class="dot">2</div><span>Genetics</span></div>
+<div class="step-line" id="line2"></div>
+<div class="step-dot" id="dot3"><div class="dot">3</div><span>Lifestyle</span></div>
+<div class="step-line" id="line3"></div>
+<div class="step-dot" id="dot4"><div class="dot">4</div><span>Results</span></div>
+</div>
+</header>
+<main>
+<!-- ── Step 1: Basic Profile ── -->
+<div class="section active" id="step1">
+<div class="section-header">
+<div class="section-icon">👤</div>
+<div><div class="section-title">Basic Profile</div><div class="section-sub">Used to calibrate population-specific risk thresholds</div></div>
+</div>
+```
+<div class="field">
+<label>Age <span>(years)</span></label>
+<input type="number" id="age" min="18" max="90" placeholder="e.g. 45" value="">
+</div>
+<div class="field">
+<label>Biological Sex</label>
+<div class="radio-group" id="sexGroup">
+<div class="radio-btn" onclick="selectRadio('sexGroup',this,'sex','Male')">Male</div>
+<div class="radio-btn" onclick="selectRadio('sexGroup',this,'sex','Female')">Female</div>
+<div class="radio-btn" onclick="selectRadio('sexGroup',this,'sex','Other/Prefer not to say')">Prefer not to say</div>
+</div>
+</div>
+<div class="field">
+<label>Ancestry / Ethnicity <span>(affects SNP prevalence estimates)</span></label>
+<select id="ethnicity">
+<option value="">Select…</option>
+<option>European / White</option>
+<option>African / Black</option>
+<option>East Asian</option>
+<option>South Asian</option>
+<option>Hispanic / Latino</option>
+<option>Ashkenazi Jewish</option>
+<option>Mixed / Other</option>
+</select>
+</div>
+<div class="field">
+<label>Family History <span>(check all that apply)</span></label>
+<div class="radio-group" id="famHist" style="flex-direction:column;align-items:flex-start;">
+<label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="T2D" onchange="updateFamHist(this)"> Type 2 Diabetes in parent or sibling</label>
+<label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="CVD" onchange="updateFamHist(this)"> Heart disease or stroke before age 60</label>
+<label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="Cancer" onchange="updateFamHist(this)"> Breast, ovarian, or prostate cancer</label>
+<label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="Alzheimers" onchange="updateFamHist(this)"> Alzheimer's or dementia</label>
+<label style="display:flex;align-items:center;gap:0.5rem;font-weight:400;cursor:pointer;"><input type="checkbox" value="HTN" onchange="updateFamHist(this)"> High blood pressure requiring medication</label>
+</div>
+</div>
+<div class="btn-nav">
+<div></div>
+<button class="btn btn-primary" onclick="goTo(2)">Next: Genetics →</button>
+</div>
+```
+</div>
+<!-- ── Step 2: Genetic Risk Factors ── -->
+<div class="section" id="step2">
+<div class="section-header">
+<div class="section-icon">🧬</div>
+<div><div class="section-title">Genetic Risk Factors</div><div class="section-sub">Select SNPs you carry (from a genetic test) or leave blank for average population risk</div></div>
+</div>
+```
+<p style="font-size:0.82rem;color:var(--gray-500);margin-bottom:1rem;line-height:1.5;">
+Each SNP below is sourced from the <strong>NHGRI-EBI GWAS Catalog</strong> — the world's authoritative database of genome-wide association study findings. Check any risk variants you carry. If you don't have genetic test data, leave all unchecked (you'll receive average population risk estimates).
+</p>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;">Type 2 Diabetes</div>
+<div class="snp-grid">
+<div class="snp-card" onclick="toggleSNP(this,'TCF7L2_rs7903146',1.37,'T2D')">
+<div class="snp-name">TCF7L2 · rs7903146</div>
+<div class="snp-disease">Type 2 Diabetes</div>
+<div class="snp-risk">OR = 1.37 · strongest T2D variant</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'PPARG_rs1801282',1.14,'T2D')">
+<div class="snp-name">PPARG · rs1801282</div>
+<div class="snp-disease">Type 2 Diabetes</div>
+<div class="snp-risk">OR = 1.14 · insulin sensitivity</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'KCNJ11_rs5219',1.15,'T2D')">
+<div class="snp-name">KCNJ11 · rs5219</div>
+<div class="snp-disease">Type 2 Diabetes</div>
+<div class="snp-risk">OR = 1.15 · beta cell function</div>
+</div>
+</div>
+<hr>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;">Cardiovascular Disease</div>
+<div class="snp-grid">
+<div class="snp-card" onclick="toggleSNP(this,'9p21_rs10757278',1.62,'CVD')">
+<div class="snp-name">9p21 · rs10757278</div>
+<div class="snp-disease">Cardiovascular Disease</div>
+<div class="snp-risk">OR = 1.62 · doubles CVD risk</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'APOE_e4',3.0,'CVD')">
+<div class="snp-name">APOE ε4 · rs429358</div>
+<div class="snp-disease">CVD + Alzheimer's</div>
+<div class="snp-risk">OR = 3.0 · major risk allele</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'LPA_rs10455872',1.5,'CVD')">
+<div class="snp-name">LPA · rs10455872</div>
+<div class="snp-disease">Cardiovascular Disease</div>
+<div class="snp-risk">OR = 1.5 · elevated Lp(a)</div>
+</div>
+</div>
+<hr>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;">Cancer</div>
+<div class="snp-grid">
+<div class="snp-card" onclick="toggleSNP(this,'BRCA1_variant',8.0,'Cancer')">
+<div class="snp-name">BRCA1 · pathogenic</div>
+<div class="snp-disease">Breast / Ovarian Cancer</div>
+<div class="snp-risk">OR = 8.0 · high-penetrance variant</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'FGFR2_rs2981582',1.26,'Cancer')">
+<div class="snp-name">FGFR2 · rs2981582</div>
+<div class="snp-disease">Breast Cancer</div>
+<div class="snp-risk">OR = 1.26 · common low-risk variant</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'HSD3B1_rs1926722',1.19,'Cancer')">
+<div class="snp-name">HSD3B1 · rs1926722</div>
+<div class="snp-disease">Prostate Cancer</div>
+<div class="snp-risk">OR = 1.19 · androgen metabolism</div>
+</div>
+</div>
+<hr>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;">Alzheimer's Disease</div>
+<div class="snp-grid">
+<div class="snp-card" onclick="toggleSNP(this,'BIN1_rs744373',1.15,'Alzheimers')">
+<div class="snp-name">BIN1 · rs744373</div>
+<div class="snp-disease">Alzheimer's Disease</div>
+<div class="snp-risk">OR = 1.15 · 2nd most common AD SNP</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'CLU_rs11136000',1.16,'Alzheimers')">
+<div class="snp-name">CLU · rs11136000</div>
+<div class="snp-disease">Alzheimer's Disease</div>
+<div class="snp-risk">OR = 1.16 · clusterin pathway</div>
+</div>
+</div>
+<hr>
+<div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);margin-bottom:0.6rem;">Hypertension</div>
+<div class="snp-grid">
+<div class="snp-card" onclick="toggleSNP(this,'ACE_rs4646994',1.22,'HTN')">
+<div class="snp-name">ACE · rs4646994</div>
+<div class="snp-disease">Hypertension</div>
+<div class="snp-risk">OR = 1.22 · ACE I/D polymorphism</div>
+</div>
+<div class="snp-card" onclick="toggleSNP(this,'AGT_rs699',1.18,'HTN')">
+<div class="snp-name">AGT · rs699</div>
+<div class="snp-disease">Hypertension</div>
+<div class="snp-risk">OR = 1.18 · angiotensinogen</div>
+</div>
+</div>
+<div class="btn-nav">
+<button class="btn btn-secondary" onclick="goTo(1)">← Back</button>
+<button class="btn btn-primary" onclick="goTo(3)">Next: Lifestyle →</button>
+</div>
+```
+</div>
+<!-- ── Step 3: Lifestyle ── -->
+<div class="section" id="step3">
+<div class="section-header">
+<div class="section-icon">🏃</div>
+<div><div class="section-title">Lifestyle Factors</div><div class="section-sub">Lifestyle modifies genetic risk — sometimes dramatically</div></div>
+</div>
+```
+<div class="field">
+<label>Physical Activity <span>(days per week with 30+ min moderate exercise)</span></label>
+<div class="radio-group" id="exerciseGroup">
+<div class="radio-btn" onclick="selectRadio('exerciseGroup',this,'exercise','0')">0 days</div>
+<div class="radio-btn" onclick="selectRadio('exerciseGroup',this,'exercise','1-2')">1–2 days</div>
+<div class="radio-btn" onclick="selectRadio('exerciseGroup',this,'exercise','3-4')">3–4 days</div>
+<div class="radio-btn" onclick="selectRadio('exerciseGroup',this,'exercise','5+')">5+ days</div>
+</div>
+</div>
+<div class="field">
+<label>Diet Quality</label>
+<div class="radio-group" id="dietGroup">
+<div class="radio-btn" onclick="selectRadio('dietGroup',this,'diet','poor')">Poor (mostly processed)</div>
+<div class="radio-btn" onclick="selectRadio('dietGroup',this,'diet','average')">Average</div>
+<div class="radio-btn" onclick="selectRadio('dietGroup',this,'diet','good')">Good (whole foods)</div>
+<div class="radio-btn" onclick="selectRadio('dietGroup',this,'diet','excellent')">Excellent (Mediterranean)</div>
+</div>
+</div>
+<div class="field">
+<label>BMI Range</label>
+<div class="radio-group" id="bmiGroup">
+<div class="radio-btn" onclick="selectRadio('bmiGroup',this,'bmi','under')">Underweight (<18.5)</div>
+<div class="radio-btn" onclick="selectRadio('bmiGroup',this,'bmi','normal')">Normal (18.5–25)</div>
+<div class="radio-btn" onclick="selectRadio('bmiGroup',this,'bmi','over')">Overweight (25–30)</div>
+<div class="radio-btn" onclick="selectRadio('bmiGroup',this,'bmi','obese')">Obese (30+)</div>
+</div>
+</div>
+<div class="field">
+<label>Average Sleep <span>(hours per night)</span></label>
+<div class="slider-wrap">
+<input type="range" id="sleep" min="4" max="11" step="0.5" value="7" oninput="document.getElementById('sleepVal').textContent=this.value">
+<div class="slider-val" id="sleepVal">7</div>
+</div>
+</div>
+<div class="field">
+<label>Stress Level <span>(typical daily stress)</span></label>
+<div class="slider-wrap">
+<input type="range" id="stress" min="1" max="10" value="4" oninput="document.getElementById('stressVal').textContent=this.value">
+<div class="slider-val" id="stressVal">4</div>
+</div>
+</div>
+<div class="field">
+<label>Smoking Status</label>
+<div class="radio-group" id="smokingGroup">
+<div class="radio-btn" onclick="selectRadio('smokingGroup',this,'smoking','never')">Never smoked</div>
+<div class="radio-btn" onclick="selectRadio('smokingGroup',this,'smoking','former')">Former smoker</div>
+<div class="radio-btn" onclick="selectRadio('smokingGroup',this,'smoking','current')">Current smoker</div>
+</div>
+</div>
+<div class="field">
+<label>Alcohol Consumption</label>
+<div class="radio-group" id="alcoholGroup">
+<div class="radio-btn" onclick="selectRadio('alcoholGroup',this,'alcohol','none')">None</div>
+<div class="radio-btn" onclick="selectRadio('alcoholGroup',this,'alcohol','light')">Light (1–3/week)</div>
+<div class="radio-btn" onclick="selectRadio('alcoholGroup',this,'alcohol','moderate')">Moderate (4–7/week)</div>
+<div class="radio-btn" onclick="selectRadio('alcoholGroup',this,'alcohol','heavy')">Heavy (8+/week)</div>
+</div>
+</div>
+<div class="btn-nav">
+<button class="btn btn-secondary" onclick="goTo(2)">← Back</button>
+<button class="btn btn-primary" onclick="calculateAndShow()">Generate My Prevention Plan →</button>
+</div>
+```
+</div>
+<!-- ── Step 4: Results ── -->
+<div class="section results-section" id="step4">
+<div class="section-header">
+<div class="section-icon">📊</div>
+<div><div class="section-title">Your Personalized Risk Profile</div><div class="section-sub">Combined genetic + lifestyle analysis</div></div>
+</div>
+```
+<div id="snpChips" style="margin-bottom:1rem;"></div>
+<div class="risk-cards" id="riskCards"></div>
+<hr>
+<div style="font-size:0.85rem;font-weight:600;color:var(--gray-700);margin-bottom:0.75rem;">Detailed Risk Breakdown</div>
+<div id="scoreBreakdown"></div>
+<div class="ai-box" id="aiBox">
+<div class="ai-header">
+<div class="ai-badge">AI Analysis</div>
+<div class="ai-title">Generating your personalized prevention plan…</div>
+</div>
+<div id="aiContent" class="ai-loading">
+<div class="spinner"></div>
+<span>Analyzing your genetic + lifestyle profile with Claude AI…</span>
+</div>
+</div>
+<div class="disclaimer">
+<strong>⚠️ Educational Tool Only.</strong> GenomeGuide uses published GWAS data to demonstrate personalized medicine concepts. It does not provide medical advice, use real genetic data, or replace a physician or genetic counselor. All recommendations are for educational purposes only.
+</div>
+<div class="btn-nav" style="margin-top:1.5rem;">
+<button class="btn btn-secondary" onclick="goTo(3)">← Edit Lifestyle</button>
+<button class="btn btn-primary" onclick="location.reload()">Start Over</button>
+</div>
+```
+</div>
+</main>
+<script>
+// ── State ────────────────────────────────────────────────────
+const state = {
+age: '', sex: '', ethnicity: '',
+famHist: [],
+snps: {}, // { snpId: { or, disease } }
+exercise: '', diet: '', bmi: '',
+sleep: 7, stress: 4,
+smoking: '', alcohol: ''
+};
+function selectRadio(groupId, el, key, val) {
+document.querySelectorAll(`#${groupId} .radio-btn`).forEach(b => b.classList.remove('selected'));
+el.classList.add('selected');
+state[key] = val;
+}
+function updateFamHist(cb) {
+if (cb.checked) { if (!state.famHist.includes(cb.value)) state.famHist.push(cb.value); }
+else { state.famHist = state.famHist.filter(v => v !== cb.value); }
+}
+function toggleSNP(el, id, or, disease) {
+if (el.classList.contains('selected')) {
+el.classList.remove('selected');
+delete state.snps[id];
+} else {
+el.classList.add('selected');
+state.snps[id] = { or, disease };
+}
+}
+// ── Navigation ───────────────────────────────────────────────
+function goTo(step) {
+document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+const target = document.getElementById('step' + step);
+if (target) { target.classList.add('active'); }
+// update progress dots
+for (let i = 1; i <= 4; i++) {
+const dot = document.getElementById('dot' + i);
+const line = document.getElementById('line' + i);
+dot.classList.remove('active','done');
+if (line) line.classList.remove('done');
+if (i < step) { dot.classList.add('done'); if (line) line.classList.add('done'); }
+if (i === step) dot.classList.add('active');
+}
+window.scrollTo({top:0,behavior:'smooth'});
+}
+// ── PRS Calculation ──────────────────────────────────────────
+const DISEASES = ['T2D','CVD','Cancer','Alzheimers','HTN'];
+const DISEASE_LABELS = {
+T2D: 'Type 2 Diabetes', CVD: 'Cardiovascular', Cancer: 'Cancer',
+Alzheimers: "Alzheimer's", HTN: 'Hypertension'
+};
+function calcPRS(disease) {
+let logSum = 0;
+Object.values(state.snps).forEach(snp => {
+if (snp.disease === disease) logSum += Math.log(snp.or);
+});
+// Baseline population average ≈ 0.3 (some always carry minor alleles)
+const baseline = 0.3;
+return baseline + logSum;
+}
+function calcLifestyleRisk() {
+let score = 0;
+// Exercise (max 10)
+const ex = { '5+':0, '3-4':3, '1-2':7, '0':10 };
+score += (ex[state.exercise] ?? 5);
+// Diet (max 10)
+const diet = { excellent:0, good:2, average:6, poor:10 };
+score += (diet[state.diet] ?? 5);
+// BMI (max 10)
+const bmi = { normal:0, under:3, over:6, obese:10 };
+score += (bmi[state.bmi] ?? 4);
+// Sleep (max 6)
+const sl = parseFloat(document.getElementById('sleep').value);
+score += (sl >= 7 && sl <= 8) ? 0 : (sl >= 6 || sl <= 9) ? 3 : 6;
+// Stress (max 6)
+const st = parseInt(document.getElementById('stress').value);
+score += st <= 3 ? 0 : st <= 6 ? 3 : 6;
+// Smoking (max 8)
+const sm = { never:0, former:3, current:8 };
+score += (sm[state.smoking] ?? 0);
+// Alcohol (max 8)
+const al = { none:0, light:1, moderate:4, heavy:8 };
+score += (al[state.alcohol] ?? 0);
+// Normalize to 0–100
+return Math.min(100, (score / 58) * 100);
+}
+function calcCombinedRisk(disease) {
+const prs = calcPRS(disease);
+const prsNorm = Math.min(100, (prs / 2.5) * 100);
+const lifestyle = calcLifestyleRisk();
+const famBonus = state.famHist.includes(disease) ? 20 : 0;
+const combined = (prsNorm * 0.4) + (lifestyle * 0.4) + (famBonus * 0.2) + (Math.min(20,(state.age||40)/5)*0.2);
+return Math.min(99, Math.round(combined));
+}
+function riskLevel(score) {
+if (score < 35) return 'low';
+if (score < 65) return 'moderate';
+return 'high';
+}
+function riskEmoji(score) {
+if (score < 35) return '✅';
+if (score < 65) return '⚠️';
+return '🔴';
+}
+function fillClass(score) {
+if (score < 35) return 'fill-low';
+if (score < 65) return 'fill-mod';
+return 'fill-high';
+}
+// ── Render Results ───────────────────────────────────────────
+function calculateAndShow() {
+state.sleep = parseFloat(document.getElementById('sleep').value);
+state.stress = parseInt(document.getElementById('stress').value);
+state.age = document.getElementById('age').value || '40';
+state.ethnicity = document.getElementById('ethnicity').value || 'Not specified';
+const scores = {};
+DISEASES.forEach(d => { scores[d] = calcCombinedRisk(d); });
+const sorted = [...DISEASES].sort((a,b) => scores[b]-scores[a]);
+// SNP chips
+const chipDiv = document.getElementById('snpChips');
+const snpIds = Object.keys(state.snps);
+if (snpIds.length > 0) {
+chipDiv.innerHTML = '<div style="font-size:0.78rem;font-weight:600;color:var(--gray-500);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.08em;">Risk SNPs detected:</div><div class="chip-row">' +
+snpIds.map(id => `<div class="chip">${id.replace(/_/g,' ').split(' ').slice(0,2).join(' ')}</div>`).join('') +
+'</div>';
+} else {
+chipDiv.innerHTML = '<div style="font-size:0.82rem;color:var(--gray-500);">No specific risk SNPs entered — using average population genetic risk baselines.</div>';
+}
+// Risk cards
+const cardsDiv = document.getElementById('riskCards');
+cardsDiv.innerHTML = DISEASES.map(d => {
+const s = scores[d]; const lvl = riskLevel(s);
+return `<div class="risk-card ${lvl}">
+<div class="risk-label">${DISEASE_LABELS[d]}</div>
+<div class="risk-score">${s}</div>
+<div class="risk-pct">${lvl.charAt(0).toUpperCase()+lvl.slice(1)} risk</div>
+</div>`;
+}).join('');
+// Score breakdown bars
+const breakDiv = document.getElementById('scoreBreakdown');
+breakDiv.innerHTML = sorted.map(d => {
+const s = scores[d];
+return `<div class="score-bar-wrap">
+<div class="score-bar-label"><span>${riskEmoji(s)} ${DISEASE_LABELS[d]}</span><span>${s}/100</span></div>
+<div class="score-bar-track"><div class="score-bar-fill ${fillClass(s)}" style="width:0%" id="bar_${d}"></div></div>
+</div>`;
+}).join('');
+goTo(4);
+// Animate bars
+setTimeout(() => {
+sorted.forEach(d => {
+const bar = document.getElementById('bar_'+d);
+if (bar) bar.style.width = scores[d] + '%';
+});
+}, 200);
+// AI Recommendation
+fetchAIRecommendation(scores, sorted);
+}
+async function fetchAIRecommendation(scores, sorted) {
+const top3 = sorted.slice(0,3);
+const snpList = Object.keys(state.snps).length > 0
+? Object.keys(state.snps).map(id => `${id} (OR=${state.snps[id].or})`).join(', ')
+: 'No specific risk SNPs identified (using population averages)';
+const prompt = `You are GenomeGuide, an AI-powered personalized medicine education tool. A user has entered their profile and you must generate a personalized prevention plan.
+USER PROFILE:
+- Age: ${state.age || '40'}, Biological sex: ${state.sex || 'Not specified'}, Ethnicity: ${state.ethnicity}
+- Family history: ${state.famHist.length > 0 ? state.famHist.join(', ') : 'None reported'}
+- Risk SNPs carrying: ${snpList}
+- Exercise: ${state.exercise || 'Not specified'} days/week
+- Diet: ${state.diet || 'Not specified'}
+- BMI category: ${state.bmi || 'Not specified'}
+- Sleep: ${state.sleep} hrs/night, Stress: ${state.stress}/10
+- Smoking: ${state.smoking || 'Not specified'}, Alcohol: ${state.alcohol || 'Not specified'}
+COMBINED RISK SCORES (genetic + lifestyle + family history, scale 0-100):
+${DISEASES.map(d => `- ${DISEASE_LABELS[d]}: ${scores[d]}/100 (${riskLevel(scores[d])} risk)`).join('\n')}
+TOP PRIORITY CONDITIONS: ${top3.map(d => DISEASE_LABELS[d]).join(', ')}
+Generate a personalized prevention plan with these sections:
+1. **Priority Focus** (2-3 sentences): Which 2 conditions should this person focus on most and why, based on their specific genetic + lifestyle combination.
+2. **Personalized Actions** (4-6 bullet points): Specific, concrete prevention steps tailored to THIS person's actual risk factors. Reference their specific SNPs or lifestyle inputs where relevant. Not generic advice — mention specific numbers (e.g., sodium mg, exercise minutes).
+3. **Genetic Insight** (2-3 sentences): Explain how one specific SNP they carry changes their risk picture in plain language.
+4. **Screening Timeline**: When should they first discuss genetic counseling or specific screenings with a doctor?
+Keep total response under 350 words. Use plain language understandable without medical training. Format with the bold headers above.`;
+try {
+const response = await fetch('https://api.anthropic.com/v1/messages', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+model: 'claude-sonnet-4-6',
+max_tokens: 1000,
+messages: [{ role: 'user', content: prompt }]
+})
+});
+if (!response.ok) throw new Error('API error');
+const data = await response.json();
+const text = data.content?.map(c => c.text || '').join('') || '';
+document.getElementById('aiContent').className = 'ai-content';
+document.getElementById('aiContent').innerHTML = formatAIText(text);
+} catch (err) {
+// Graceful fallback with pre-computed recommendations
+document.getElementById('aiContent').className = 'ai-content';
+document.getElementById('aiContent').innerHTML = generateFallback(scores, sorted);
+}
+}
+function formatAIText(text) {
+return text
+.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+.replace(/\n\n/g, '<br><br>')
+.replace(/\n- /g, '<br>• ')
+.replace(/\n\d+\. /g, match => '<br>' + match.trim() + ' ');
+}
+function generateFallback(scores, sorted) {
+const top = sorted[0];
+const topScore = scores[top];
+const snpList = Object.keys(state.snps);
+const actions = {
+T2D: ['Limit refined carbohydrates; target <25g added sugar/day','Walk 30 minutes after meals to improve insulin sensitivity','Get HbA1c tested annually starting now','Prioritize sleep: poor sleep worsens insulin resistance by up to 25%'],
+CVD: ['Achieve sodium intake <1,500 mg/day to reduce blood pressure','Target 150+ min/week of moderate aerobic exercise','Ask your doctor about a baseline lipid panel including Lp(a)','Mediterranean diet shown to reduce CVD events by 30% in high-risk individuals'],
+Cancer: ['Schedule cancer genetic counseling given your SNP profile','Limit alcohol to ≤1 drink/day (alcohol is a Group 1 carcinogen)','Maintain BMI in normal range — each 5-unit BMI increase raises cancer risk 10-15%','Discuss age-appropriate cancer screenings with your physician now'],
+Alzheimers: ['Exercise 150 min/week: strongest single intervention for Alzheimer\'s prevention','Prioritize 7-9 hours sleep: amyloid clearance occurs primarily during sleep','Manage cardiovascular risk — what\'s good for the heart is good for the brain','Cognitive engagement (reading, learning new skills) builds neural reserve'],
+HTN: ['Reduce sodium intake to <1,500 mg/day; read all food labels','DASH diet reduces blood pressure by 8-14 mmHg in clinical trials','Stress management: your stress score suggests this is a priority intervention','Monitor blood pressure at home and log monthly']
+};
+const snpInsights = {
+'TCF7L2_rs7903146': 'Your TCF7L2 variant affects how your gut releases insulin-stimulating hormones, making dietary carbohydrate management especially important for you specifically.',
+'APOE_e4': 'APOE ε4 affects how your body processes fats and is the strongest known genetic risk factor for both Alzheimer\'s and cardiovascular disease — making exercise and heart-healthy habits doubly important for you.',
+'9p21_rs10757278': 'The 9p21 variant near the CDKN2A/B genes affects arterial wall cell regulation, increasing cardiovascular risk independently of traditional risk factors like cholesterol.',
+'BRCA1_variant': 'BRCA1 variants significantly impair your cells\' ability to repair damaged DNA, making early screening and minimizing environmental carcinogen exposure especially important for you.'
+};
+let insight = snpList.length > 0 && snpInsights[snpList[0]]
+? `<strong>🧬 Genetic Insight:</strong> ${snpInsights[snpList[0]]}<br><br>`
+: '';
+const topActions = (actions[top] || actions['CVD']).slice(0,4);
+return `<strong>🎯 Priority Focus:</strong> Based on your combined genetic and lifestyle profile, your highest priority conditions are <strong>${DISEASE_LABELS[sorted[0]]}</strong> (${scores[sorted[0]]}/100) and <strong>${DISEASE_LABELS[sorted[1]]}</strong> (${scores[sorted[1]]}/100). ${topScore >= 65 ? 'Your high combined risk score suggests proactive prevention steps are warranted now.' : 'Your moderate risk level means preventive steps now can significantly shift your long-term trajectory.'}<br><br>
+<strong>✅ Personalized Actions:</strong><br>
+${topActions.map(a => `• ${a}`).join('<br>')}<br><br>
+${insight}
+<strong>📅 Screening Timeline:</strong> Given your profile, discuss these risk factors with a physician within the next 6-12 months. ${snpList.length > 0 ? 'Consider genetic counseling to understand your specific variants in a clinical context.' : 'A family history discussion with your doctor can help contextualize your risk.'}`;
+}
+</script>
+</body>
+</html>
