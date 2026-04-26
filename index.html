@@ -1024,7 +1024,7 @@ const sorted = [...DISEASES].sort((a,b)=>study.riskScores[b]-study.riskScores[a]
 document.getElementById('riskRow').innerHTML = sorted.map(d => {
 const s = study.riskScores[d]; const lvl = riskLevel(s);
 return `<div class="risk-tile ${lvl}">
-<div class="risk-tile-num">${s}</div>
+<div class="risk-tile-num">${s}</div>F
 <div class="risk-tile-label">${DIS_LABEL[d]}</div>
 </div>`;
 }).join('');
@@ -1140,8 +1140,8 @@ headers:{
 'Content-Type':'application/json',
 'anthropic-dangerous-direct-browser-access':'true'
 // PASTE YOUR API KEY BELOW (remove the // from the next two lines):
-// ,'x-api-key':'YOUR_API_KEY_HERE'
-// ,'anthropic-version':'2023-06-01'
+,'x-api-key':'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'
+,'anthropic-version':'2023-06-01'
 },
 body: JSON.stringify({
 model:'claude-sonnet-4-6', max_tokens:1000,
